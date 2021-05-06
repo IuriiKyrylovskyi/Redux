@@ -12,7 +12,6 @@ function App() {
     setTheme(newTheme);
   };
 
-  // console.log(themes.light);
   return (
     <div className="App">
       <ThemeContext.Provider value={theme}>
