@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./TthemesContext";
 
-function ThemedButton({ children }) {
+function ThemedButton({ text }) {
   const { background, fontColor } = useContext(ThemeContext);
   
   return (
@@ -12,7 +12,7 @@ function ThemedButton({ children }) {
         color: fontColor,
       }}
     >
-      {children}
+      {text}
     </button>
   );
 }

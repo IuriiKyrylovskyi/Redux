@@ -15,10 +15,10 @@ const App = () => {
   return (
     <div className="App">
       <ThemeContext.Provider value={theme}>
-        <ThemedButton onClick={toggleTheme} children={"Dynamic Theme"} />
+        <ThemedButton onClick={toggleTheme} text={"Dynamic Theme"} />
       </ThemeContext.Provider>
 
-      <ThemedButton onClick={toggleTheme} children={"Default Theme"} />
+      <ThemedButton onClick={toggleTheme} text={"Default Theme"} />
     </div>
   );
 };
