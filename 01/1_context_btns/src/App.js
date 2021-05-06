@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "./App.css";
 import ThemedButton from "./ThemedButton";
-import { themes, ThemeContext } from "./themes-context";
+import { themes, ThemeContext } from "./TthemesContext";
 
-function App() {
+const App = () => {
   const [theme, setTheme] = useState(themes.light);
 
   const toggleTheme = () => {
-    console.log(theme);
     const newTheme = themes.dark ? themes.light : themes.dark;
-    setTheme(newTheme);
+    console.log(newTheme);
+    return setTheme(newTheme);
   };
 
   return (
@@ -21,6 +21,6 @@ function App() {
       <ThemedButton onClick={toggleTheme} children={"Default Theme"} />
     </div>
   );
-}
+};
 
 export default App;
