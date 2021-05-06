@@ -12,11 +12,11 @@ function App() {
     setTheme(newTheme);
   };
 
-  console.log(themes.light);
+  // console.log(themes.light);
   return (
     <div className="App">
       <ThemeContext.Provider value={theme}>
-        <ThemedButton onClick={() => console.log("hi")} children={"Dynamic Theme"} />
+        <ThemedButton onClick={toggleTheme} children={"Dynamic Theme"} />
       </ThemeContext.Provider>
 
       <ThemedButton onClick={toggleTheme} children={"Default Theme"} />
