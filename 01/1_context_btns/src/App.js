@@ -4,12 +4,15 @@ import ThemedButton from "./ThemedButton";
 import { themes, ThemeContext } from "./ThemesContext";
 
 const App = () => {
-  const [theme, setTheme] = useState(themes.light);
+  const [theme, setTheme] = useState(themes.dark);
 
-  function toggleTheme() {
-    const newTheme = themes.dark ? themes.light : themes.dark;
+  const toggleTheme = () => {
+    const newTheme = theme === themes.dark
+      ? themes.light
+      : themes.dark;
+    
     console.log(newTheme);
-    return setTheme(newTheme);
+    setTheme(newTheme);
   };
 
   return (
