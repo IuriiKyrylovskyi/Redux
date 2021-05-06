@@ -4,7 +4,7 @@ import ThemedButton from "./ThemedButton";
 import { themes, ThemeContext } from "./ThemesContext";
 
 const App = () => {
-  const [theme, setTheme] = useState(themes.dark);
+  const [theme, setTheme] = useState(themes.light);
 
   const toggleTheme = () => {
     const newTheme = theme === themes.dark
