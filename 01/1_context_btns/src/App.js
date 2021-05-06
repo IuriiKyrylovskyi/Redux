@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 import ThemedButton from "./ThemedButton";
-import { themes, ThemeContext } from "./TthemesContext";
+import { themes, ThemeContext } from "./ThemesContext";
 
 const App = () => {
   const [theme, setTheme] = useState(themes.light);
 
-  const toggleTheme = () => {
+  function toggleTheme() {
     const newTheme = themes.dark ? themes.light : themes.dark;
     console.log(newTheme);
     return setTheme(newTheme);

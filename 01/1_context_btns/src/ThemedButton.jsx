@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "./TthemesContext";
+import { ThemeContext } from "./ThemesContext";
 
 function ThemedButton({ text }) {
   const { background, fontColor } = useContext(ThemeContext);
