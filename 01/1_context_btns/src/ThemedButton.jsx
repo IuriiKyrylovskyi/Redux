@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./ThemesContext";
 
-function ThemedButton({ text }) {
+function ThemedButton({ text, handleToggle }) {
   const { background, fontColor } = useContext(ThemeContext);
-  
+
   return (
     <button
+      onClick={handleToggle}
       className="btn"
       style={{
         backgroundColor: background,
@@ -16,7 +17,5 @@ function ThemedButton({ text }) {
     </button>
   );
 }
-
-// ThemedButton.contextType = ThemeContext;
 
 export default ThemedButton;

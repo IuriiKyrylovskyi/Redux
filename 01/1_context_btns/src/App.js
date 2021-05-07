@@ -7,21 +7,18 @@ const App = () => {
   const [theme, setTheme] = useState(themes.light);
 
   const toggleTheme = () => {
-    const newTheme = theme === themes.dark
-      ? themes.light
-      : themes.dark;
-    
-    console.log(newTheme);
+    const newTheme = theme === themes.dark ? themes.light : themes.dark;
+
     setTheme(newTheme);
   };
 
   return (
     <div className="App">
       <ThemeContext.Provider value={theme}>
-        <ThemedButton onClick={toggleTheme} text={"Dynamic Theme"} />
+        <ThemedButton handleToggle={toggleTheme} text={"Dynamic Theme"} />
       </ThemeContext.Provider>
 
-      <ThemedButton onClick={toggleTheme} text={"Default Theme"} />
+      <ThemedButton handleToggle={toggleTheme} text={"Default Theme"} />
     </div>
   );
 };
