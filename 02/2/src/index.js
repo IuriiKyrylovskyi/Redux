@@ -1,5 +1,5 @@
 import "./index.css";
-import { store, increment, decrement, reset } from "./store.js";
+import store, { increment, decrement, reset } from "./store.js";
 
 const resultElem = document.querySelector(".counter__result");
 const decrementBtn = document.querySelector("[data-action='decrement']");
@@ -29,4 +29,3 @@ store.subscribe(() => {
 
   resultElem.textContent = currentValue === 0 ? "" : `${historyString} = ${currentValue}`;
 });
-

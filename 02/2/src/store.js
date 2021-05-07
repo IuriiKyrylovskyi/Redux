@@ -30,17 +30,14 @@ const counterReducer = (state = initState, action) => {
   switch (action.type) {
     case INCREMENT:
       return {
-        ...state,
         history: state.history.concat('+1'),
       };
     case DECREMENT:
       return {
-        ...state,
         history: state.history.concat(-1),
       };
     case RESET:
       return {
-        ...state,
         history: [],
       };
     default:
@@ -48,4 +45,6 @@ const counterReducer = (state = initState, action) => {
   }
 };
 
-export const store = createStore(counterReducer);
+const store = createStore(counterReducer);
+
+export default store;
