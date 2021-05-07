@@ -9,7 +9,7 @@ export const increment = () => {
   };
 };
 
-export const decremrnt = () => {
+export const decrement = () => {
   return {
     type: DECREMENT,
   }
