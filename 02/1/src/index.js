@@ -27,3 +27,5 @@ const counterReducer = (state = 0, action) => {
 };
 
 const store = createStore(counterReducer);
+
+// console.log(store);
