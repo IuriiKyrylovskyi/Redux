@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import {user,  UserContext } from "./userContext";
+import { UserContext } from "./userContext";
 
 function App() {
-  const [userData] = useState(user);
+  const [userData] = useState({
+    name: "Nikola Tesla",
+    avatar_url: "https://avatars3.githubusercontent.com/u10001",
+  });
 
   return (
     <div className="Page">
