@@ -1,6 +1,10 @@
 import store from "./store.js";
 import { addUser, deleteUser } from "./users.actions";
 
-store.dispatch(addUser(user));
+const newUser = { id: 76, name: "Sarah" };
 
-store.dispatch(deleteUser(id));
+store.dispatch(addUser(newUser));
+
+const userIdToDelete = 76;
+
+store.dispatch(deleteUser(userIdToDelete));
