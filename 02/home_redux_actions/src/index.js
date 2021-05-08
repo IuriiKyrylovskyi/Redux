@@ -8,3 +8,7 @@ store.dispatch(addUser(newUser));
 const userIdToDelete = 76;
 
 store.dispatch(deleteUser(userIdToDelete));
+
+store.subscribe(() => {
+  store.getState();
+});
