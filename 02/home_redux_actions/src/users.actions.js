@@ -1,5 +1,5 @@
-const ADD_USER = "USERS/ADD_USER";
-const DELETE_USER = "USERS/DELETE_USER";
+const ADD_USER = "ADD_USER";
+const DELETE_USER = "DELETE_USER";
 
 export const addUser = () => {
   return {
