@@ -1,19 +1,8 @@
-const ADD_USER = "REDUCER/ADD_USER";
-const REMOVE_USER = "REDUCER/REMOVE_USER";
-
-const addUser = () => {
-  return {
-    type: ADD_USER,
-  };
+const initState = {
+  usersList: [],
 };
 
-const removeUser = () => {
-  return {
-    type: REMOVE_USER,
-  };
-};
-
-const usersReducer = (state = [], action) => {
+export const usersReducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_USER:
       return state.concat(user);
