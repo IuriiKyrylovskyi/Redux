@@ -27,11 +27,11 @@ resetBtn.addEventListener("click", onReset);
 //   e.target.dataset.action === 'increment' ? "+" : "";
 // }
 
-
 store.subscribe(() => {
   const state = store.getState();
   const currentValue = state.history.reduce((acc, value) => acc + parseInt(value), 0);
   const historyString = state.history.join("");
 
-  resultElem.textContent = currentValue === 0 ? "" : `${historyString} = ${currentValue}`;
+  resultElem.textContent = state.history.length === 0 ? "" : `${historyString} = ${currentValue}`;
+  // resultElem.textContent = currentValue === 0 ? "" : `${historyString} = ${currentValue}`;
 });
