@@ -4,7 +4,7 @@ const DELETE_USER = "USERS/DELETE_USER";
 export const addUser = (user) => {
   return {
     type: ADD_USER,
-    payload: user,
+    payload: user.user,
     // payload: { userId, userName },
   };
 };
@@ -12,7 +12,7 @@ export const addUser = (user) => {
 export const deleteUser = (userId) => {
   return {
     type: DELETE_USER,
-    payload: userId,
+    payload: user.userId,
     // payload: userId,
   };
 };
