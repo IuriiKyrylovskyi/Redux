@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux";
 import './index.css';
 import App from './App';
 
@@ -7,7 +8,7 @@ import store from "./store.js";
 import { addUser, deleteUser } from "./users.actions.js";
 
 
-const newUser = { id: 76, name: "Sarah" };
+const newUser = { id: '76', name: "Sarah" };
 // const newUser2 = { id: 25, name: "S" };
 
 store.dispatch(addUser(newUser));
@@ -17,7 +18,7 @@ store.subscribe(() => {
   store.getState();
   console.log(store.getState());
 });
-const userIdToDelete = 7;
+const userIdToDelete = '7';
 
 store.dispatch(deleteUser(userIdToDelete));
 
@@ -27,8 +28,10 @@ store.subscribe(() => {
 });
 
 ReactDOM.render(
-    <App />,
-  document.getElementById('root')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
 
 
