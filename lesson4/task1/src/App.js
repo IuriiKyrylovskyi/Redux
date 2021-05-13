@@ -1,12 +1,12 @@
 import Counter from "./Counter";
-import { Provider } from "react-redux";
-import store from "./store";
+// import { Provider } from "react-redux";
+// import store from "./store";
 
 function App() {
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <Counter />
-    </Provider>
+    // </Provider>
   );
 }
 
