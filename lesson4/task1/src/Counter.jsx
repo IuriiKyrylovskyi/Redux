@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import * as counterActions from "./counter.actions";
 
-function Counter({ counter, increment, decrement, reset }) {
+const Counter = ({ counter, increment, decrement, reset }) => {
   return (
     <div className="counter">
       <button className="counter__button" onClick={decrement}>
