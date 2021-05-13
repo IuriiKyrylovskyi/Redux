@@ -15,7 +15,6 @@ const cartReducer = (state = initState, action) => {
       const newProdutsList = state.produts.filter((product) => product.id !== action.payload.productId);
       
       return {
-        ...state,
         products: newProdutsList,
       };
     }
