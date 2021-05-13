@@ -5,7 +5,7 @@ export const setUser = (userData) => {
   return {
     type: SET_USER,
     payload: {
-      user: userData,
+      userData,
     },
   };
 };
