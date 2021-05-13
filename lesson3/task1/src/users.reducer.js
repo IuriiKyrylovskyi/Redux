@@ -9,7 +9,7 @@ const usersReducer = (state = initState, action) => {
     case ADD_USER: {
       return {
         ...state,
-        usersList: state.usersList.concat(action.payload.newUser),
+        usersList: state.usersList.concat(action.payload.userData),
       };
     }
     case DELETE_USER: {
