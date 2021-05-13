@@ -12,7 +12,7 @@ const cartReducer = (state = initState, action) => {
       };
     }
     case REMOVE_PRODUCT: {
-      const newProdutsList = state.produts.filter((product) => product.id !== action.payload.productId);
+      const newProdutsList = state.products.filter((product) => product.id !== action.payload.productId);
       
       return {
         products: newProdutsList,
