@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import User from "./User";
-import Pagination from "./Pagination";
 import * as usersActions from "./../users.actions";
 import * as paginationsActions from "./../pagination.actions";
+import User from "./User";
+import Pagination from "./Pagination";
 
 function UsersList({ users, goPrev, goNext, currentPage }) {
   const totalItems = users.length;
-  
+  console.log(users);
   return (
     <>
       <Pagination
@@ -25,12 +25,12 @@ function UsersList({ users, goPrev, goNext, currentPage }) {
 const mapState = (state, props) => {
   return {
     users: state.users.usersList,
-    // currentPage: state,
+    currentPage: state.currentPage,
   };
 };
 
 const mapDispatch = {
-  users: usersActions.getUsersList,
+  // users: usersActions.getUsersList,
   // currentPage: paginationsActions.currentPage,
   goPrev: paginationsActions.goPrevPage,
   goNext: paginationsActions.goNextPage,
