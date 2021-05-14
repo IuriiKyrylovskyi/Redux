@@ -1,4 +1,5 @@
 import React from "react";
+import {connect } from 'react-redux'
 import User from "./User";
 import Pagination from "./Pagination";
 
@@ -11,4 +12,14 @@ function UsersList({ users }) {
   );
 }
 
-export default UsersList;
+const mapState = (state, props) => {
+  return {
+    users: state.users.usersList,
+    currentPage: props.currentPage
+  };
+}
+const connector = connect(mapState, mapDispatch);
+
+const ConnectedUsersList = connector(UsersList);
+
+export default ConnectedUsersList;
