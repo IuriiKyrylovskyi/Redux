@@ -35,6 +35,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  &__page{
+    width: 40px;
+    text-align: center;
+  }
 }
 
 .btn {
