@@ -6,13 +6,31 @@ function Pagination({ goPrev, goNext, currentPage, totalItems, itemsPerPage }) {
 
   return (
     <div className="pagination">
-      <button className="btn" onClick={goPrev} disabled={!isPrevPageAvailable}>
+      {/* <button className="btn" onClick={goPrev} disabled={!isPrevPageAvailable}>
         {isPrevPageAvailable && "←"}
       </button>
       <span className="pagination__page">{currentPage + 1}</span>
       <button className="btn" onClick={goNext} disabled={!isNextPageAvailable}>
         {isNextPageAvailable && "→"}
-      </button>
+      </button> */}
+
+      {!isPrevPageAvailable ? (
+        <button className="btn" disabled={true}></button>
+      ) : (
+        <button className="btn" onClick={goPrev}>
+          ←
+        </button>
+      )}
+
+      <span className="pagination__page">{currentPage}</span>
+
+      {!isNextPageAvailable ? (
+        <button className="btn" disabled={true}></button>
+      ) : (
+        <button className="btn" onClick={goNext}>
+          →
+        </button>
+      )}
     </div>
   );
 }
