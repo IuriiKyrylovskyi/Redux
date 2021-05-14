@@ -9,14 +9,15 @@ function Users({ usersList, addUser, deleteUser }) {
         Create user
       </button>
       <ul className="users__list">
-        {usersList.map((user) => (
-          <li key={user.userId} className="users__list-item">
-            <span>User # {user.userId}</span>
-            <button className="users__delete-btn" onClick={deleteUser}>
-              +
-            </button>
-          </li>
-        ))}
+        {usersList.length > 0 &&
+          usersList.map((user) => (
+            <li key={user.userId} className="users__list-item">
+              <span>User # {user.userId}</span>
+              <button className="users__delete-btn" onClick={deleteUser}>
+                +
+              </button>
+            </li>
+          ))}
       </ul>
     </div>
   );
@@ -24,9 +25,7 @@ function Users({ usersList, addUser, deleteUser }) {
 
 const mapState = (state) => {
   return {
-    users: {
-      usersList: state,
-    },
+    usersList: state,
   };
 };
 
