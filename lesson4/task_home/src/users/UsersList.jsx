@@ -8,15 +8,13 @@ import Pagination from "./Pagination";
 function UsersList({ users, goPrev, goNext, currentPage }) {
   const totalItems = users.length;
   console.log(users);
+  console.log(currentPage);
+
+  const itemsPerPage = 5;
+
   return (
     <>
-      <Pagination
-        goPrev={goPrev}
-        goNext={goNext}
-        currentPage={currentPage}
-        totalItems={totalItems}
-        // itemsPerPage={itemsPerPage}
-      />
+      <Pagination goPrev={goPrev} goNext={goNext} currentPage={currentPage} totalItems={totalItems} itemsPerPage={itemsPerPage} />
       <ul className="users">{users.length > 0 && users.map((user) => <User key={user.id} name={user.name} age={user.age} />)}</ul>
     </>
   );
