@@ -2,15 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import * as usersActions from "./users.actions";
 
-function Users({ usersList, addUser, deleteUser }) {
+function Users({ users, addUser, deleteUser }) {
   return (
     <div className="users">
       <button className="users__create-btn" onClick={addUser}>
         Create user
       </button>
       <ul className="users__list">
-        {usersList.length > 0 &&
-          usersList.map((user) => (
+        {users.length > 0 &&
+          users.map((user) => (
             <li key={user.userId} className="users__list-item">
               <span>User # {user.userId}</span>
               <button className="users__delete-btn" onClick={deleteUser}>
@@ -25,7 +25,7 @@ function Users({ usersList, addUser, deleteUser }) {
 
 const mapState = (state) => {
   return {
-    usersList: state,
+    users: state.users.usersList,
   };
 };
 
