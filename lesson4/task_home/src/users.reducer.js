@@ -1,4 +1,4 @@
-import { GET_USERS_LIST, GO_PREV_PAGE, GO_NEXT_PAGE } from "./users.actions";
+import { GET_USERS_DATA, GO_PREV_PAGE, GO_NEXT_PAGE } from "./users.actions";
 import users from "./users";
 
 const initState = {
@@ -8,7 +8,7 @@ const initState = {
 
 const usersReducer = (state = initState, action) => {
   switch (action.type) {
-    case GET_USERS_LIST: {
+    case GET_USERS_DATA: {
       return users;
     }
     case GO_PREV_PAGE: {
