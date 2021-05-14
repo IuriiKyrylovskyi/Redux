@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-// import * as usersActions from "./../users.actions";
-import * as paginationsActions from "./../pagination.actions";
+import * as usersActions from "./../users.actions";
+// import * as paginationsActions from "./../pagination.actions";
 import User from "./User";
 import Pagination from "./Pagination";
 
 const ITEMS_PER_PAGE = 3;
 
-function UsersList({ users, goPrev, goNext, currentPage }) {
+function UsersList({ users, currentPage, goPrev, goNext }) {
   const totalItems = users.length;
 
   const itemsPerPage = ITEMS_PER_PAGE;
@@ -15,14 +15,16 @@ function UsersList({ users, goPrev, goNext, currentPage }) {
   const indexMin = currentPage * itemsPerPage;
   const indexMax = indexMin + itemsPerPage;
 
+  // const goPrev = () => {
+  //   return currentPage - 1;
+  // };
+  // const goNext = () => {
+  //   return currentPage + 1;
+  // };
   return (
     <>
       <Pagination goPrev={goPrev} goNext={goNext} currentPage={currentPage} totalItems={totalItems} itemsPerPage={itemsPerPage} />
-      <ul className="users">
-        {users.length > 0 &&
-          users.filter((user, index) => index >= indexMin && index < indexMax)
-            .map((user) => <User key={user.id} name={user.name} age={user.age} />)
-        }</ul>
+      <ul className="users">{users.length > 0 && users.filter((user, index) => index >= indexMin && index < indexMax).map((user) => <User key={user.id} name={user.name} age={user.age} />)}</ul>
       {/* <ul className="users">
         {users.length > 0 &&
           users.reduce((acc, user, index) => (index >= indexMin && index < indexMax)
@@ -33,18 +35,18 @@ function UsersList({ users, goPrev, goNext, currentPage }) {
   );
 }
 
-const mapState = (state, props) => {
+const mapState = (state) => {
   return {
     users: state.users.usersList,
-    currentPage: state.currentPage,
+    currentPage: state.users.currentPage,
   };
 };
 
 const mapDispatch = {
   // users: usersActions.getUsersList,
   // currentPage: paginationsActions.currentPage,
-  goPrev: paginationsActions.goPrevPage,
-  goNext: paginationsActions.goNextPage,
+  goPrev: usersActions.goPrevPage,
+  goNext: usersActions.goNextPage,
 };
 
 const connector = connect(mapState, mapDispatch);
