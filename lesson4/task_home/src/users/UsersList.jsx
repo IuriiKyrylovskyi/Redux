@@ -17,7 +17,6 @@ function UsersList({ users, currentPage, goPrev, goNext }) {
   return (
     <>
       <Pagination goPrev={goPrev} goNext={goNext} currentPage={currentPage + 1} totalItems={totalItems} itemsPerPage={itemsPerPage} />
-      {/* <ul className="users">{users.length > 0 && users.filter((user, index) => index >= indexMin && index < indexMax).map((user) => <User key={user.id} name={user.name} age={user.age} />)}</ul> */}
       <ul className="users">
         {users.length > 0 &&
           users.reduce((acc, user, index) => (index >= indexMin && index < indexMax)
