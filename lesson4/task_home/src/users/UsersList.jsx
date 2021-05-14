@@ -4,7 +4,7 @@ import * as usersActions from "./../users.actions";
 import User from "./User";
 import Pagination from "./Pagination";
 
-const ITEMS_PER_PAGE = 4;
+const ITEMS_PER_PAGE = 3;
 
 function UsersList({ users, currentPage, goPrev, goNext }) {
   const totalItems = users.length;
