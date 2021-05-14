@@ -43,8 +43,6 @@ const mapState = (state) => {
 };
 
 const mapDispatch = {
-  // users: usersActions.getUsersList,
-  // currentPage: paginationsActions.currentPage,
   goPrev: usersActions.goPrevPage,
   goNext: usersActions.goNextPage,
 };
