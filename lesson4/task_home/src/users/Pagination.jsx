@@ -22,7 +22,7 @@ function Pagination({ goPrev, goNext, currentPage, totalItems, itemsPerPage }) {
         </button>
       )}
 
-      <span className="pagination__page">{currentPage}</span>
+      <span className="pagination__page">{currentPage + 1}</span>
 
       {!isNextPageAvailable ? (
         <button className="btn" disabled={true}></button>
