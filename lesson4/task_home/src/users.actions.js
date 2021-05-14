@@ -11,7 +11,6 @@ export const getUsersList = (users) => {
   };
 };
 
-
 export const goPrevPage = () => {
   return {
     type: GO_PREV_PAGE,
