@@ -2,9 +2,12 @@ import React from "react";
 import User from "./User";
 import Pagination from "./Pagination";
 
+import { users } from "../options/users";
+
 const ITEMS_PER_PAGE = 4;
 
-const UsersList = ({ users }) => {
+const UsersList = () => {
+  //({ users }) => {
   const currentPage = 1;
   const totalItems = users.length;
 

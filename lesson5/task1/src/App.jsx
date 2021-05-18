@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
+import UsersList from "./users/UsersList";
 
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+  return <UsersList />;
 }
 
 export default App;
