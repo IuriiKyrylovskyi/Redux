@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getInputText } from "./users.actions";
+import { usersListSelector, filterTextSelector } from "./users.selectors";
 import User from "./User";
 import Filter from "../Filter";
 
@@ -27,8 +28,8 @@ const UsersList = ({ filtredUsersList, filterText, handleInputText }) => {
 
 const mapState = (state) => {
   return {
-    filtredUsersList: state.users.usersList,
-    filterText: state.users.filterText,
+    filtredUsersList: usersListSelector(state),
+    filterText: filterTextSelector(state),
   };
 };
 
