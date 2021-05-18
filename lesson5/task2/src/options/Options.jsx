@@ -1,8 +1,6 @@
 import React from "react";
 import Option from "./Option";
 
-// import { options } from "./options";
-
 const Options = ({ title, options, moveOption }) => {
   return (
     <div className="options">

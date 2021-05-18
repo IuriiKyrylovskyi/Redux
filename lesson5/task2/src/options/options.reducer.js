@@ -1,4 +1,4 @@
-import { options } from "./options/options";
+import { options } from "./optionsList";
 
 const initState = {
   optionsList: options,
