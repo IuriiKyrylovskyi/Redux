@@ -9,7 +9,11 @@ const Options = ({ title, options, moveOption }) => {
         {options.map((option) => {
           const { id, name } = option;
 
-          return <Option key={id} id={id} name={name} moveOption={moveOption} />;
+          return <Option
+            key={id} id={id}
+            name={name}
+            moveOption={moveOption}
+          />;
         })}
       </ul>
     </div>
