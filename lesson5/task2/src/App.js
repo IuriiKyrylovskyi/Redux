@@ -1,7 +1,13 @@
 import React from "react";
+import { Provider } from 'redux';
+import store from './store';
+import TransferList from "./options/TransferList";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Provider store={store}>
+      <TransferList />
+    </Provider>
 }
 
 export default App;
