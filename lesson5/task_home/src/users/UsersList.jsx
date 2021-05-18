@@ -6,6 +6,7 @@ const UsersList = ({ filtredUsersList }) => {
     <ul class="users">
       {filtredUsersList.map((user) => {
         const { id, name, age } = user;
+        
         return <User key={id} name={name} age={age} />;
       })}
     </ul>

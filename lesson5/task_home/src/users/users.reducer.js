@@ -9,9 +9,15 @@ const initState = {
 const usersReducer = (state = initState, action) => {
   switch (action.type) {
     case GET_INPUT_TEXT: {
+      const inputedText = action.payload.text;
+
+      const filteredUsersList = state.usersList.users.filter((user) => {
+        user.name.includes(inputedText);
+      });
+
       return {
-        ...state,
-        filterText: action.payload.text,
+        usersList: filteredUsersList,
+        filterText: inputedText,
       };
     }
     default: {
