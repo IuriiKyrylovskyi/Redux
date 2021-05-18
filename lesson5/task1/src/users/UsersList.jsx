@@ -5,6 +5,9 @@ import Pagination from "./Pagination";
 const ITEMS_PER_PAGE = 4;
 
 const UsersList = ({ users }) => {
+  const currentPage = 1;
+  const totalItems = users.length;
+
   const goPrev = () => {
     console.log("goPrev");
   };
@@ -13,8 +16,6 @@ const UsersList = ({ users }) => {
     console.log("goNext");
   };
 
-  const currentPage = 1;
-  const totalItems = users.length;
   return (
     <>
       <Pagination
@@ -27,9 +28,9 @@ const UsersList = ({ users }) => {
       />
       <ul className="users">
         {users.map((user) => {
-          const { name, age } = user;
+          const { id, name, age } = user;
 
-          return <User name={name} age={age} />;
+          return <User key={id} name={name} age={age} />;
         })}
       </ul>
     </>
