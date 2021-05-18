@@ -12,7 +12,7 @@ const usersReducer = (state = initState, action) => {
       const inputedText = action.payload.text;
 
       const filteredUsersList = users.filter((user) => {
-        console.log(state.usersList);
+        // console.log(state.usersList);
         return user.name.toLowerCase().includes(inputedText.toLowerCase());
       });
 
