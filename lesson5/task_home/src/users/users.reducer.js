@@ -11,7 +11,8 @@ const usersReducer = (state = initState, action) => {
     case GET_INPUT_TEXT: {
       const inputedText = action.payload.text;
 
-      const filteredUsersList = state.usersList.filter((user) => {
+      const filteredUsersList = users.filter((user) => {
+        console.log(state.usersList);
         return user.name.toLowerCase().includes(inputedText.toLowerCase());
       });
 
