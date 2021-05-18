@@ -44,16 +44,16 @@ const users = [
     age: 45,
     name: "Ron",
   },
-  // {
-  //   id: "id-9",
-  //   age: 45,
-  //   name: "Harry",
-  // },
-  // {
-  //   id: "id-10",
-  //   age: 45,
-  //   name: "Anna",
-  // },
+  {
+    id: "id-9",
+    age: 45,
+    name: "Harry",
+  },
+  {
+    id: "id-10",
+    age: 45,
+    name: "Anna",
+  },
 ];
 
 export default users;
