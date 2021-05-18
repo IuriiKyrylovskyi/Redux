@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from "react-redux";
+import { createStore, combineReducers } from "redux";
 import optionsReducer from "./options/options.reducer";
 
 const appStore = combineReducers({

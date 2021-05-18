@@ -1,17 +1,17 @@
 import React from "react";
 import Option from "./Option";
 
-import { options } from "./options";
+// import { options } from "./options";
 
-const Options = ({ title, moveOption }) => {
+const Options = ({ title, options, moveOption }) => {
   return (
     <div className="options">
       <div className="options__title">{title}</div>
       <ul className="options__list">
         {options.map((option) => {
-          const { id } = option;
+          const { id, name } = option;
 
-          return <Option key={id} />;
+          return <Option key={id} id={id} name={name} moveOption={moveOption} />;
         })}
       </ul>
     </div>

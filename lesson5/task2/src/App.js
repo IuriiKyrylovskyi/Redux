@@ -1,5 +1,5 @@
 import React from "react";
-import { Provider } from 'redux';
+import { Provider } from 'react-redux';
 import store from './store';
 import TransferList from "./options/TransferList";
 
