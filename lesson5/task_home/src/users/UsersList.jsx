@@ -4,10 +4,10 @@ import { getInputText } from "./users.actions";
 import User from "./User";
 import Filter from "../Filter";
 
-const UsersList = ({ filtredUsersList, filterText }) => {
+const UsersList = ({ filtredUsersList, filterText, handleInputText }) => {
   return (
     <>
-      <Filter filterText={filterText} />
+      <Filter filterText={filterText} handleInput={handleInputText} />
 
       <ul class="users">
         {filtredUsersList.map((user) => {
