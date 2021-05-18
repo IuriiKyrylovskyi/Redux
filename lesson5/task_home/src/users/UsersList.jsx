@@ -7,9 +7,14 @@ import Filter from "../Filter";
 const UsersList = ({ filtredUsersList, filterText, handleInputText }) => {
   return (
     <>
-      <Filter filterText={filterText} handleInput={handleInputText} />
+      <Filter
+        filterText={filterText}
+        handleInput={handleInputText}
+        count={filtredUsersList.length}
+        //
+      />
 
-      <ul class="users">
+      <ul className="users">
         {filtredUsersList.map((user) => {
           const { id, name, age } = user;
 

@@ -11,8 +11,10 @@ body {
 #root {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
+  padding: 0 20%;
 }
 
 .users {
@@ -36,13 +38,13 @@ body {
   height: 32px;
 
   &__input {
-    flex: 1;
+    flex: 1 1 auto;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     border: 3px solid #ff7f50;
     border-left: none;
     padding: 8px;
-    font-size: 24px;
+    // font-size: 24px;
     outline: none;
   }
 
@@ -51,6 +53,7 @@ body {
     border-bottom-left-radius: 8px;
     border: 3px solid #ff7f50;
     border-right: none;
+    flex: 0 0 40px;
     width: 40px;
     line-height: 28px;
     text-align: center;
