@@ -1,6 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
+// import { getWeatherData } from "./weather.actions";
 
 const Weather = ({ cities }) => {
+  // const [cities, setCities] = useState([]);
+
+  // useEffect(() => {
+  //   setCities(getWeatherData(citiesData));
+  // }, []);
+  
+  if (cities.length === 0) {
+    return null;
+  }
   return (
     <main className="weather">
       <h1 className="weather__title">Weather data</h1>
@@ -18,4 +29,9 @@ const Weather = ({ cities }) => {
   );
 };
 
-export default Weather;
+const mapState = (state) => {
+  return {
+    citiesData: state.citiesData,
+  };
+};
+export default connect(mapState)(Weather);
