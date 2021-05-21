@@ -1,11 +1,15 @@
 import { CITIES_DATA_RECIEVED } from "./weather.actions";
 
-const weatherReducer = (state = null, action) => {
+const initState = {
+  weatherData: [],
+};
+
+const weatherReducer = (state = initState, action) => {
   switch (action.type) {
     case CITIES_DATA_RECIEVED: {
       return {
         ...state,
-        citiesData: action.payload.citiesData,
+        weatherData: state.weatherData.concat(action.payload.citiesData),
       };
     }
     default: {

@@ -1,37 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { getWeatherData } from "./weather.actions";
+import * as weatherActions from "./weather.actions";
 
-const Weather = ({ cities }) => {
-  // const [cities, setCities] = useState([]);
-
-  // useEffect(() => {
-  //   setCities(getWeatherData(citiesData));
-  // }, []);
-  
+const Weather = ({ cities, getWeatherData }) => {
+  console.log("cities", cities);
   if (cities.length === 0) {
-    return null;
+    getWeatherData(cities);
   }
+
   return (
-    <main className="weather">
-      <h1 className="weather__title">Weather data</h1>
-      <ul className="cities-list">
-        {cities.map((city) => {
-          return (
-            <li key={city.id} className="city">
-              <span className="city__name">{city.name}</span>
-              <span className="city__temperature">{city.temperature} F</span>
-            </li>
-          );
-        })}
-      </ul>
-    </main>
+    cities.length > 0 && (
+      <main className="weather">
+        <h1 className="weather__title">Weather data</h1>
+        <ul className="cities-list">
+          {cities.map((city) => {
+            return (
+              <li key={city.id} className="city">
+                <span className="city__name">{city.name}</span>
+                <span className="city__temperature">{city.temperature} F</span>
+              </li>
+            );
+          })}
+        </ul>
+      </main>
+    )
   );
 };
 
 const mapState = (state) => {
   return {
-    citiesData: state.citiesData,
+    cities: state.weatherData,
   };
 };
-export default connect(mapState)(Weather);
+
+const mapDispatch = {
+  getWeatherData: weatherActions.getWeatherData,
+};
+
+export default connect(mapState, mapDispatch)(Weather);
