@@ -1,10 +1,20 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import usersReducer from "./users/users.reducer";
+
+const logger = (store) => (next) => (action) => {
+  console.group(action.type);
+  console.info("dispatching", action);
+  let result = next(action);
+  console.log("next state", store.getState());
+  console.groupEnd();
+};
 
 const appStore = combineReducers({
   users: usersReducer,
 });
 
-const store = createStore(appStore, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(appStore, composeEnhancers(applyMiddleware(logger)));
 
 export default store;
