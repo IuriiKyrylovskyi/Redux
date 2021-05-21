@@ -1,7 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { userDataSelector, isFetchingSelector } from "./users.selectors";
-import PropTypes from "prop-types";
 
 const UserInfo = ({ userData, isFetching }) => {
   const { avatar_url, name, location } = userData;
