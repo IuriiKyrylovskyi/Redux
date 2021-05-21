@@ -36,14 +36,15 @@ const SearchField = ({ showSpinner, userDataRecieved }) => {
   );
 };
 
-const mapDispatch = {
-  showSpinner: usersActions.showSpinner,
-  userDataRecieved: usersActions.userDataRecieved,
-};
-
 SearchField.propTypes = {
   showSpinner: PropTypes.func.isRequired,
   userDataRecieved: PropTypes.func.isRequired,
+};
+
+const mapDispatch = {
+  showSpinner: usersActions.showSpinner,
+  userDataRecieved: usersActions.userDataRecieved,
+
 };
 
 export default connect(null, mapDispatch)(SearchField);
