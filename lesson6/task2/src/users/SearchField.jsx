@@ -1,28 +1,33 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { userDataSelector } from "./users.selectors";
+import * as usersActions from "./users.actions";
+import { getUserData } from "../gateway";
 
-const SearchField = ({ userData, handleChange }) => {
+const SearchField = ({ showSpinner, userDataRecieved }) => {
   const [userName, setUserName] = useState("");
 
   const handleChange = (e) => {
     return setUserName(e.target.value);
   };
 
-  const { name } = userData;
-  
+  const handleUserSearch = () => {
+    showSpinner();
+    getUserData(userName).then((userData) => userDataRecieved(userData));
+  };
+
   return (
     <div className="name-form">
       <input
         type="text"
         className="name-form__input"
-        value={name}
+        value={userName}
         onChange={handleChange}
         //
       />
       <button
         className="name-form__btn btn"
-        onClick={handleClick}
+        onClick={handleUserSearch}
         //
       >
         Show
@@ -31,14 +36,14 @@ const SearchField = ({ userData, handleChange }) => {
   );
 };
 
-const mapState = (state) => {
-  return {
-    userData: userDataSelector(state),
-  };
-};
-
 const mapDispatch = {
-  handleChange,
+  showSpinner: usersActions.showSpinner,
+  userDataRecieved: usersActions.userDataRecieved,
 };
 
-export default connect(mapState, mapDispatch)(SearchField);
+SearchField.propTypes = {
+  showSpinner: PropTypes.func.isRequired,
+  userDataRecieved: PropTypes.func.isRequired,
+};
+
+export default connect(null, mapDispatch)(SearchField);

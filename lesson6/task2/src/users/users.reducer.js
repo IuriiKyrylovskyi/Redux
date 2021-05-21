@@ -17,6 +17,7 @@ const usersReducer = (state = initState, action) => {
       return {
         ...state,
         userData: action.payload.userData,
+        isFetching: false,
       };
     }
     default: {
