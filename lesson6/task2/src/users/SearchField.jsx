@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as usersActions from "./users.actions";
-import { getUserData } from "../gateway";
+// import { getUserData } from "../gateway";
 
-const SearchField = ({ showSpinner, userDataRecieved }) => {
+const SearchField = ({ fetchUserData }) => {
   const [userName, setUserName] = useState("");
 
   const handleChange = (e) => {
@@ -12,8 +12,9 @@ const SearchField = ({ showSpinner, userDataRecieved }) => {
   };
 
   const handleUserSearch = () => {
-    showSpinner();
-    getUserData(userName).then((userData) => userDataRecieved(userData));
+    fetchUserData(userName);
+    // showSpinner();
+    // getUserData(userName).then((userData) => userDataRecieved(userData));
   };
 
   return (
@@ -37,14 +38,15 @@ const SearchField = ({ showSpinner, userDataRecieved }) => {
 };
 
 SearchField.propTypes = {
-  showSpinner: PropTypes.func.isRequired,
-  userDataRecieved: PropTypes.func.isRequired,
+  fetchUserData: PropTypes.func.isRequired,
+  // showSpinner: PropTypes.func.isRequired,
+  // userDataRecieved: PropTypes.func.isRequired,
 };
 
 const mapDispatch = {
-  showSpinner: usersActions.showSpinner,
-  userDataRecieved: usersActions.userDataRecieved,
-
+  fetchUserData: usersActions.fetchUserData,
+  // showSpinner: usersActions.showSpinner,
+  // userDataRecieved: usersActions.userDataRecieved,
 };
 
 export default connect(null, mapDispatch)(SearchField);

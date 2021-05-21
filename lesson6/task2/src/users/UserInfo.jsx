@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 import { userDataSelector, isFetchingSelector } from "./users.selectors";
 
 const UserInfo = ({ userData, isFetching }) => {
+  if (isFetching) {
+    return <span className="spinner" />;
+  }
+  
   if (!userData) {
     return null;
   }
 
-  if (isFetching) {
-    return <span className="spinner" />;
-  }
 
   const { avatar_url, name, location } = userData;
 
