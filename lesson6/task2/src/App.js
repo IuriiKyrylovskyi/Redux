@@ -7,8 +7,10 @@ import SearchField from "./users/SearchField";
 function App() {
   return (
     <Provider store={store}>
-      <UserInfo />
-      <SearchField />
+      <div className="page">
+        <UserInfo />
+        <SearchField />
+      </div>
     </Provider>
   );
 }
