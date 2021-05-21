@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userDataSelector } from "./users.selectors";
 
 const SearchField = ({ userData, handleChange }) => {
+  const [userName, setUserName] = useState("");
+
+  const handleChange = (e) => {
+    return setUserName(e.target.value);
+  };
+
   const { name } = userData;
+  
   return (
     <div className="name-form">
       <input

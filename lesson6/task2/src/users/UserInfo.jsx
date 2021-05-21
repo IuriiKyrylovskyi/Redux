@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { userDataSelector, isFetchingSelector } from "./users.selectors";
+import PropTypes from "prop-types";
 
 const UserInfo = ({ userData, isFetching }) => {
   const { avatar_url, name, location } = userData;
@@ -29,6 +30,13 @@ const mapState = (state) => {
   };
 };
 
-// const mapDispatch = {};
+UserInfo.propTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  userData: PropTypes.shape(),
+};
+
+UserInfo.defaultProps = {
+  userData: null,
+};
 
 export default connect(mapState)(UserInfo);
