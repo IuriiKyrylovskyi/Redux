@@ -25,13 +25,6 @@ const UserInfo = ({ userData, isFetching }) => {
   );
 };
 
-const mapState = (state) => {
-  return {
-    userData: userDataSelector(state),
-    isFetching: isFetchingSelector(state),
-  };
-};
-
 UserInfo.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   userData: PropTypes.shape(),
@@ -39,6 +32,13 @@ UserInfo.propTypes = {
 
 UserInfo.defaultProps = {
   userData: null,
+};
+
+const mapState = (state) => {
+  return {
+    userData: userDataSelector(state),
+    isFetching: isFetchingSelector(state),
+  };
 };
 
 export default connect(mapState)(UserInfo);
