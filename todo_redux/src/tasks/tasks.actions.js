@@ -30,3 +30,9 @@ export const updateTask = (taskId) => {
     gateway.updateTask(taskId, updatedTask).then(() => dispatch(getTasksList()));
   };
 };
+
+export const deleteTask = (taskId) => {
+  return function (dispatch) {
+    gateway.deleteTask(taskId).then(() => dispatch(getTasksList()));
+  };
+};

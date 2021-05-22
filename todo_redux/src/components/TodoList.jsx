@@ -5,20 +5,12 @@ import * as tasksAction from "../tasks/tasks.actions";
 import TasksList from "./TasksList";
 import { connect } from "react-redux";
 import { tasksListSelector } from "../tasks/tasks.selectors";
-import { fetchTasksList, createTask, deleteTask } from "../gateway";
+import { fetchTasksList, createTask } from "../gateway";
 
-const TodoList = ({ tasksList, getTasksList, updateTask }) => {
+const TodoList = ({ tasksList, getTasksList, updateTask, deleteTask }) => {
   useEffect(() => {
     getTasksList();
   }, [getTasksList]);
-
-  const handleStatusChange = (id) => {
-    updateTask(id);
-  };
-
-  const handleTaskDelete = (id) => {
-    deleteTask(id).then(fetchTasksList());
-  };
 
   const handleTaskCreate = (text) => {
     createTask({
@@ -35,8 +27,8 @@ const TodoList = ({ tasksList, getTasksList, updateTask }) => {
         <CreateTaskInput onCreate={handleTaskCreate} />
         <TasksList
           tasks={tasksList}
-          handleStatusChange={handleStatusChange}
-          handleTaskDelete={handleTaskDelete}
+          handleStatusChange={updateTask}
+          handleTaskDelete={deleteTask}
           //
         />
       </main>
@@ -48,6 +40,7 @@ TodoList.propTypes = {
   tasksList: PropTypes.arrayOf(PropTypes.shape()),
   getTasksList: PropTypes.func.isRequired,
   updateTask: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired,
 };
 
 const mapState = (state) => {
@@ -59,6 +52,7 @@ const mapState = (state) => {
 const mapDispatch = {
   getTasksList: tasksAction.getTasksList,
   updateTask: tasksAction.updateTask,
+  deleteTask: tasksAction.deleteTask,
 };
 
 export default connect(mapState, mapDispatch)(TodoList);
