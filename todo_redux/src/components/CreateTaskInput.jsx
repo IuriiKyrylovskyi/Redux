@@ -5,7 +5,8 @@ const CreateTaskInput = () => {
 
   const handleChange = (e) => {
     setInputText(e.target.value);
-    postToServerText
+    createNewTask;
+    postToServerText;
   }
 
   return (
