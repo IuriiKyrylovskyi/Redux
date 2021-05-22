@@ -1,4 +1,5 @@
-import { fetchTasksList } from "../gateway";
+import * as gateway from "../gateway";
+import { tasksListSelector } from "./tasks.selectors";
 
 export const TASKS_LIST_RECEIVED = "TASKS/TASKS_LIST_RECEIVED";
 
@@ -13,6 +14,19 @@ export const tasksListRecieved = (tasks) => {
 
 export const getTasksList = () => {
   return function (dispatch) {
-    fetchTasksList().then((tasks) => dispatch(tasksListRecieved(tasks)));
+    gateway.fetchTasksList().then((tasks) => dispatch(tasksListRecieved(tasks)));
+  };
+};
+
+export const updateTask = (taskId) => {
+  return function (dispatch, getState) {
+    const state = getState();
+    const tasksList = tasksListSelector(state);
+    const task = tasksList.find((task) => task.id === taskId);
+    const updatedTask = {
+      ...task,
+      done: !task.done,
+    };
+    gateway.updateTask(taskId, updatedTask).then(() => dispatch(getTasksList()));
   };
 };

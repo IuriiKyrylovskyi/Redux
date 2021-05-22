@@ -5,21 +5,15 @@ import * as tasksAction from "../tasks/tasks.actions";
 import TasksList from "./TasksList";
 import { connect } from "react-redux";
 import { tasksListSelector } from "../tasks/tasks.selectors";
-import { fetchTasksList, createTask, updateTask, deleteTask } from "../gateway";
+import { fetchTasksList, createTask, deleteTask } from "../gateway";
 
-const TodoList = ({ tasksList, getTasksList }) => {
+const TodoList = ({ tasksList, getTasksList, updateTask }) => {
   useEffect(() => {
     getTasksList();
   }, [getTasksList]);
 
   const handleStatusChange = (id) => {
-    const { done, text, createAt } = tasksList.find((task) => task.id===id);
-    const updatedTask = {
-      text,
-      createAt,
-      done: !done,
-    };
-    updateTask(id, updatedTask).then(fetchTasksList());
+    updateTask(id);
   };
 
   const handleTaskDelete = (id) => {
@@ -53,6 +47,7 @@ const TodoList = ({ tasksList, getTasksList }) => {
 TodoList.propTypes = {
   tasksList: PropTypes.arrayOf(PropTypes.shape()),
   getTasksList: PropTypes.func.isRequired,
+  updateTask: PropTypes.func.isRequired,
 };
 
 const mapState = (state) => {
@@ -63,6 +58,7 @@ const mapState = (state) => {
 
 const mapDispatch = {
   getTasksList: tasksAction.getTasksList,
+  updateTask: tasksAction.updateTask,
 };
 
 export default connect(mapState, mapDispatch)(TodoList);
