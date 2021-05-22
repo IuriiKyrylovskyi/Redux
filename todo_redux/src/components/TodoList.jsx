@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import * as tasksAction from "../tasks/tasks.actions";
-import { tasksListSelector } from "../tasks/tasks.selectors";
+import { sortedTasksListSelector } from "../tasks/tasks.selectors";
 import TasksList from "./TasksList";
 import CreateTaskInput from "./CreateTaskInput";
 
@@ -37,7 +37,7 @@ TodoList.propTypes = {
 
 const mapState = (state) => {
   return {
-    tasksList: tasksListSelector(state),
+    tasksList: sortedTasksListSelector(state),
   };
 };
 

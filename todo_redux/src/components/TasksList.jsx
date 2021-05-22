@@ -3,12 +3,12 @@ import { PropTypes } from "prop-types";
 import Task from "./Task";
 
 const TasksList = ({ tasks, handleStatusChange, handleTaskDelete }) => {
-  const sortedTasks = tasks.slice().sort((a, b) => a.done - b.done);
+  // const sortedTasks = tasks.slice().sort((a, b) => a.done - b.done);
 
   return (
     <ul className="list">
-      {sortedTasks.length > 0 &&
-        sortedTasks.map((task) => {
+      {tasks.length > 0 &&
+        tasks.map((task) => {
           const { id, done, text } = task;
 
           return (
