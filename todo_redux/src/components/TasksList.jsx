@@ -2,8 +2,8 @@ import React from "react";
 import {connect} from 'react-redux'
 import Task from "./Task";
 
-const TasksList = ({ taskList, handleStatusChange, handleTaskDelete s}) => {
-  const sortedTasks = taskList.slice().sort((a, b) => a.done - b.done);
+const TasksList = ({ tasksList, handleStatusChange, handleTaskDelete}) => {
+  const sortedTasks = tasksList.slice().sort((a, b) => a.done - b.done);
 
   return (
     <ul className="list">
