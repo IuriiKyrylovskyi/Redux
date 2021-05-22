@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import Task from "./Task";
 
 const TasksList = ({ tasks, handleStatusChange, handleTaskDelete }) => {
@@ -23,6 +24,12 @@ const TasksList = ({ tasks, handleStatusChange, handleTaskDelete }) => {
         })}
     </ul>
   );
+};
+
+TasksList.propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.shape()),
+  handleStatusChange: PropTypes.func.isRequired,
+  handleTaskDelete: PropTypes.func.isRequired,
 };
 
 export default TasksList;

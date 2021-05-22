@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { PropTypes } from "prop-types";
 import CreateTaskInput from "./CreateTaskInput";
 import * as tasksAction from "../tasks/tasks.actions";
 import TasksList from "./TasksList";
@@ -47,6 +48,11 @@ const TodoList = ({ tasksList, getTasksList }) => {
       </main>
     </div>
   );
+};
+
+TodoList.propTypes = {
+  tasksList: PropTypes.arrayOf(PropTypes.shape()),
+  getTasksList: PropTypes.func.isRequired,
 };
 
 const mapState = (state) => {
