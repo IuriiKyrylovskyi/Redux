@@ -1,18 +1,21 @@
 import React from "react";
 
-const Task = ({ text, handleStatusChange, handleTaskDelete }) => {
+const Task = ({ id, done, text, handleStatusChange, handleTaskDelete }) => {
+  const listItemClass = `list-item ${done ? "list-item_done" : ""}`;
+
   return (
-    <li className="list-item">
+    <li className={listItemClass}>
       <input
         type="checkbox"
         className="list-item__checkbox"
-        onChange={handleStatusChange}
+        checked={done}
+        onChange={() => handleStatusChange(id)}
         //
       />
       {text}
       <button
         className="list-item__delete-btn"
-        onClick={handleTaskDelete}
+        onClick={() => handleTaskDelete(id)}
         //
       />
     </li>
