@@ -1,9 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
 import Task from "./Task";
 
-const TasksList = ({ tasksList, handleStatusChange, handleTaskDelete }) => {
-  const sortedTasks = tasksList.slice().sort((a, b) => a.done - b.done);
+const TasksList = ({ tasks, handleStatusChange, handleTaskDelete }) => {
+  console.log(tasks);
+  const sortedTasks = tasks.slice().sort((a, b) => a.done - b.done);
 
   return (
     <ul className="list">
@@ -26,15 +26,4 @@ const TasksList = ({ tasksList, handleStatusChange, handleTaskDelete }) => {
   );
 };
 
-const mapState = (state) => {
-  return {
-    // tasks: state.tasksList.
-  };
-};
-
-const mapDispatch = {
-  // handleStatusChange: tasksActions.
-  // handleTaskDelete: tasksActions.
-};
-
-export default connect(mapState, mapDispatch)(TasksList);
+export default TasksList;

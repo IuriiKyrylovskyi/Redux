@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import CreateTaskInput from "./CreateTaskInput";
+import * as tasksAction from "../tasks/tasks.actions";
 import TasksList from "./TasksList";
-import { fetchTasksList, createTask, updateTask, deleteTask } from "./tasksGateway";
+import { connect } from "react-redux";
+import { tasksListSelector } from "../tasks/tasks.selectors";
 
-const TodoList = () => {
-  const [tasks, setTasks] = useState([]);
-
+const TodoList = ({ tasks, getTasksList }) => {
   useEffect(() => {
-    fetchTasksList();
-  }, []);
+    getTasksList();
+  }, [getTasksList]);
 
   return (
     <div>
@@ -21,4 +21,14 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
+const mapState = (state) => {
+  return {
+    tasks: tasksListSelector(state),
+  };
+};
+
+const mapDispatch = {
+  getTasksList: tasksAction.getTasksList,
+};
+
+export default connect(mapState, mapDispatch)(TodoList);

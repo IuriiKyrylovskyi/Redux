@@ -1,30 +1,18 @@
-export const GET_TASKS_LIST = "TASKS/GET_TASKS_LIST";
-export const UPDATE_TASK = "TASKS/UPDATE_TASK";
-export const DELETE_TASK = "TASKS/DELETE_TASK";
+import { fetchTasksList } from "../gateway";
 
-export const getTaksList = (tasks) => {
+export const TASKS_LIST_RECEIVED = "TASKS/TASKS_LIST_RECEIVED";
+
+export const tasksListRecieved = (tasks) => {
   return {
-    type: GET_TASKS_LIST,
+    type: TASKS_LIST_RECEIVED,
     payload: {
       tasks,
     },
   };
 };
 
-export const updateTask = (id) => {
-  return {
-    type: UPDATE_TASK,
-    payload: {
-      id,
-    },
-  };
-};
-
-export const deleteTask = (id) => {
-  return {
-    type: DELETE_TASK,
-    payload: {
-      id,
-    },
+export const getTasksList = () => {
+  return function (dispatch) {
+    fetchTasksList().then((tasks) => dispatch(tasksListRecieved(tasks)));
   };
 };
