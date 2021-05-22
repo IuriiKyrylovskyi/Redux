@@ -36,3 +36,15 @@ export const deleteTask = (taskId) => {
     gateway.deleteTask(taskId).then(() => dispatch(getTasksList()));
   };
 };
+
+export const createTask = (text) => {
+  return function (dispatch) {
+    gateway
+      .createTask({
+        text,
+        done: false,
+        createdAt: new Date().toISOString(),
+      })
+      .then(() => dispatch(getTasksList()));
+  };
+};

@@ -6,7 +6,11 @@ const CreateTaskInput = ({ onCreate }) => {
 
   const handleChange = (e) => {
     setInputText(e.target.value);
-    onCreate(setInputText);
+  };
+
+  const handleCreate = () => {
+    onCreate(inputText);
+    setInputText("");
   };
 
   return (
@@ -18,7 +22,9 @@ const CreateTaskInput = ({ onCreate }) => {
         onChange={handleChange}
         //
       />
-      <button className="btn create-task__btn">Create</button>
+      <button className="btn create-task__btn" onClick={handleCreate}>
+        Create
+      </button>
     </div>
   );
 };

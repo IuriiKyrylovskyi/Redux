@@ -1,30 +1,21 @@
 import React, { useEffect } from "react";
 import { PropTypes } from "prop-types";
-import CreateTaskInput from "./CreateTaskInput";
-import * as tasksAction from "../tasks/tasks.actions";
-import TasksList from "./TasksList";
 import { connect } from "react-redux";
+import * as tasksAction from "../tasks/tasks.actions";
 import { tasksListSelector } from "../tasks/tasks.selectors";
-import { fetchTasksList, createTask } from "../gateway";
+import TasksList from "./TasksList";
+import CreateTaskInput from "./CreateTaskInput";
 
-const TodoList = ({ tasksList, getTasksList, updateTask, deleteTask }) => {
+const TodoList = ({ tasksList, getTasksList, updateTask, deleteTask, createTask }) => {
   useEffect(() => {
     getTasksList();
   }, [getTasksList]);
-
-  const handleTaskCreate = (text) => {
-    createTask({
-      text,
-      done: false,
-      createdAt: new Date().toISOString(),
-    }).then(fetchTasksList());
-  };
 
   return (
     <div>
       <h1 className="title">Todo List</h1>
       <main className="todo-list">
-        <CreateTaskInput onCreate={handleTaskCreate} />
+        <CreateTaskInput onCreate={createTask} />
         <TasksList
           tasks={tasksList}
           handleStatusChange={updateTask}
@@ -41,6 +32,7 @@ TodoList.propTypes = {
   getTasksList: PropTypes.func.isRequired,
   updateTask: PropTypes.func.isRequired,
   deleteTask: PropTypes.func.isRequired,
+  createTask: PropTypes.func.isRequired,
 };
 
 const mapState = (state) => {
@@ -53,6 +45,7 @@ const mapDispatch = {
   getTasksList: tasksAction.getTasksList,
   updateTask: tasksAction.updateTask,
   deleteTask: tasksAction.deleteTask,
+  createTask: tasksAction.createTask,
 };
 
 export default connect(mapState, mapDispatch)(TodoList);

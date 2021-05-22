@@ -2,7 +2,6 @@ import React from "react";
 import { PropTypes } from "prop-types";
 
 const Task = ({ id, done, text, handleStatusChange, handleTaskDelete }) => {
-  console.log(done);
   const listItemClass = `list-item ${done ? "list-item_done" : ""}`;
 
   return (
@@ -13,7 +12,6 @@ const Task = ({ id, done, text, handleStatusChange, handleTaskDelete }) => {
         checked={done}
         onChange={() => {
           handleStatusChange(id);
-          console.log("update");
         }}
 
         //
@@ -23,7 +21,6 @@ const Task = ({ id, done, text, handleStatusChange, handleTaskDelete }) => {
         className="list-item__delete-btn"
         onClick={() => {
           handleTaskDelete(id);
-          console.log("delete");
         }}
         //
       />
