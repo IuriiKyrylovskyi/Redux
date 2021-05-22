@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-const CreateTaskInput = () => {
+const CreateTaskInput = ({ onCreate }) => {
   const [inputText, setInputText] = useState("");
 
   const handleChange = (e) => {
     setInputText(e.target.value);
-    // createNewTask;
-    // postToServerText;
-  }
+    onCreate(setInputText);
+  };
 
   return (
     <div className="create-task">

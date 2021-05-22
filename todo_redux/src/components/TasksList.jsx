@@ -2,7 +2,6 @@ import React from "react";
 import Task from "./Task";
 
 const TasksList = ({ tasks, handleStatusChange, handleTaskDelete }) => {
-  console.log(tasks);
   const sortedTasks = tasks.slice().sort((a, b) => a.done - b.done);
 
   return (
