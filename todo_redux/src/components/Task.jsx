@@ -2,6 +2,7 @@ import React from "react";
 import { PropTypes } from "prop-types";
 
 const Task = ({ id, done, text, handleStatusChange, handleTaskDelete }) => {
+  console.log(done);
   const listItemClass = `list-item ${done ? "list-item_done" : ""}`;
 
   return (
@@ -38,9 +39,9 @@ Task.propTypes = {
   handleTaskDelete: PropTypes.func.isRequired,
 };
 
-Task.defaultProps = {
-  done: false,
-  text: "",
-};
+// Task.defaultProps = {
+//   done: false,
+//   text: "",
+// };
 
 export default Task;

@@ -13,7 +13,7 @@ const TodoList = ({ tasksList, getTasksList }) => {
   }, [getTasksList]);
 
   const handleStatusChange = (id) => {
-    const { done, text, createAt } = tasksList.find((task) => task.id);
+    const { done, text, createAt } = tasksList.find((task) => task.id===id);
     const updatedTask = {
       text,
       createAt,

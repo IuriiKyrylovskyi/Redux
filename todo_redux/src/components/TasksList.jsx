@@ -9,12 +9,13 @@ const TasksList = ({ tasks, handleStatusChange, handleTaskDelete }) => {
     <ul className="list">
       {sortedTasks.length > 0 &&
         sortedTasks.map((task) => {
-          const { id, text } = task;
+          const { id, done, text } = task;
 
           return (
             <Task
               key={id}
               id={id}
+              done={done}
               text={text}
               handleStatusChange={handleStatusChange}
               handleTaskDelete={handleTaskDelete}
