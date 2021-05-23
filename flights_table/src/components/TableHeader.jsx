@@ -1,8 +1,8 @@
 import React from "react";
-import TableCeil from "./TableCeil";
+import TableHeaderCeil from "./TableHeaderCeil";
 
 const TableHeader = () => {
-  const tableCeils = [
+  const tableHeaderCeils = [
     {
       id: "1",
       text: "Terminal",
@@ -29,11 +29,11 @@ const TableHeader = () => {
     },
   ];
   return (
-    <>
-      {tableCeils.map((ceil) => {
-        return <TableCeil key={ceil.id} text={ceil.text} />;
+    <ul className="flights__table-header">
+      {tableHeaderCeils.map((ceil) => {
+        return <TableHeaderCeil key={ceil.id} text={ceil.text} />;
       })}
-    </>
+    </ul>
   );
 };
 
