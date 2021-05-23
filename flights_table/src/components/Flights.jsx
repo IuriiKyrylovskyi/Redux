@@ -13,8 +13,6 @@ const Flights = () => {
           <TableHeader />
         <div className="flights__table">
           <FlightsTable />
-          {/* <Departures /> */}
-          {/* <Arrivals /> */}
         </div>
       </div>
     </div>
