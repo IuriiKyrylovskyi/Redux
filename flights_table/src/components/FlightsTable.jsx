@@ -10,7 +10,8 @@ const FlightsTable = () => {
 
   return (
     <ul className="flights__departures">
-      {flightsList.map((dep) => {
+      {flightsList.map((flights) => {
+        const {} = 
         return <TableRow key={dep.ID} {...dep} />;
       })}
     </ul>
