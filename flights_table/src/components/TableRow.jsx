@@ -7,7 +7,9 @@ const TableRow = ({ ID, index, term, timeDepShedule, timeDepFact, status, codeSh
 
   return (
     <li className="flights__table-row row">
-      <div className="row__terminal">{term}</div>
+      <div className="row__terminal">
+        <span>{term}</span>
+      </div>
       <div className="row__timeShed">{`${new Date(timeDepShedule).getHours()} : ${new Date(timeDepShedule).getMinutes()}`}</div>
       <div className="row__destination">{"destination"}</div>
       <div className="row__timeAct">{`Landed or Departed ${new Date(timeDepFact).getHours()} : ${new Date(timeDepFact).getMinutes()}`} </div>

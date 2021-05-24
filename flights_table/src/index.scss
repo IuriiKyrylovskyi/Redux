@@ -108,34 +108,33 @@ body {
     li {
       white-space: nowrap;
       text-overflow: ellipsis;
-      // text-align: center;
+      line-height: 50px;
       &:nth-child(1) {
-        flex: 0 0 60px;
+        flex: 0 0 10%;
         width: 100%;
       }
       &:nth-child(2) {
-        flex: 0 0 140px;
+        flex: 0 0 15%;
         width: 100%;
         min-width: 100px;
-        text-align: center;
       }
       &:nth-child(3) {
-        flex: 1 1 20%;
+        flex: 0 0 20%;
         width: 100%;
         min-width: 100px;
-        text-align: center;
       }
       &:nth-child(4) {
-        flex: 1 1 20%;
+        flex: 0 0 20%;
         width: 100%;
         min-width: 100px;
-        text-align: center;
       }
       &:nth-child(5) {
-        flex: 1 1 20%;
-        width: 100%;
+        flex: 1 1 auto;
         min-width: 100px;
-        text-align: center;
+      }
+      &:nth-child(6) {
+        flex: 0 0 10%;
+        min-width: 80px;
       }
     }
   }
@@ -156,33 +155,48 @@ body {
   justify-content: space-between;
   height: 70px;
   padding: 10px;
-  li {
+  div {
     width: 100%;
+    padding: 0 5px;
+  }
+  &:nth-child(odd) {
+    background-color: rgb(205, 238, 253);
   }
 }
 .row__terminal {
-  flex: 0 0 40px;
+  flex: 0 0 10%;
   width: 100%;
   height: 40px;
-  line-height: 40px;
-  margin: 0 10px;
-  text-align: center;
-  color: rgb(62, 202, 62);
-  position: relative;
-  border-radius: 50%;
-  border: 1px solid rgb(62, 202, 62);
+  span {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    // margin: 0 10px;
+    text-align: center;
+    color: rgb(62, 202, 62);
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid rgb(62, 202, 62);
+  }
 }
 .row__timeShed {
-  flex: 0 0 140px;
+  flex: 0 0 15%;
   width: 100%;
   min-width: 100px;
-  text-align: center;
 }
 .row__destination {
+  flex: 0 0 20%;
+  width: 100%;
+  min-width: 100px;
 }
 .row__timeAct {
+  flex: 0 0 20%;
+  width: 100%;
+  min-width: 100px;
 }
 .row__airline {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   img {
@@ -191,6 +205,8 @@ body {
   }
 }
 .row__flight {
+  flex: 0 0 10%;
+  width: 80%;
 }
 .ceil {
 }
@@ -212,7 +228,7 @@ body {
   }
   // border-top-right-radius: 50px;
   // border-top-left-radius: 50px;
-  &._active,
+  // &._active,
   &:disabled {
     flex: 0 0 calc(50% + 50px);
     color: #55cbf7;
