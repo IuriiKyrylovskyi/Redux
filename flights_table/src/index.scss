@@ -212,12 +212,15 @@ body {
   }
   // border-top-right-radius: 50px;
   // border-top-left-radius: 50px;
-  &._active {
-    // flex: 0 0 calc(50% - 50px);
+  &._active,
+  &:disabled {
+    flex: 0 0 calc(50% + 50px);
     color: #55cbf7;
     background-color: #fff;
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
     margin: 0;
+    position: relative;
+    z-index: 1;
   }
 }
