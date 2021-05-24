@@ -107,8 +107,10 @@ body {
     color: grey;
     li {
       white-space: nowrap;
+      overflow: hidden;
       text-overflow: ellipsis;
       line-height: 50px;
+      padding-right: 5px;
       &:nth-child(1) {
         flex: 0 0 10%;
         width: 100%;
