@@ -8,7 +8,7 @@ const TableButtons = () => {
       <button className="flights__header-departures-btn btn">
         <FaPlaneDeparture /> Departures
       </button>
-      <button className="flights__header-arrivals-btn btn">
+      <button className="flights__header-arrivals-btn btn _active">
         <FaPlaneArrival /> Arrivals
       </button>
     </div>

@@ -1,21 +1,21 @@
 import React from "react";
 
-const TableRow = ({ ID, term, timeDepShedule, timeDepFact, status, codeShareData }) => {
-  const airline = "BAW"; //codeShareData.airline.en.name;
+const TableRow = ({ ID, index, term, timeDepShedule, timeDepFact, status, codeShareData }) => {
+  const airline = "WizzAir"; //codeShareData.airline.en.name;
   const icon = "https://api.iev.aero/media/airline/files/5b556bea9e8d9364778468.png"; //codeShareData.airline.en.logoSmallName;
-  const flight = "WizzAir"; // codeShareData.codeShare;
+  const flight = "W3325"; // codeShareData.codeShare;
 
   return (
-    <li className="flights__table-row ceil">
-      <div className="ceil__terminal">{term}</div>
-      <div className="ceil__timeShed">{timeDepShedule}</div>
-      <div className="ceil__destination">{"destination"}</div>
-      <div className="ceil__timeAct">`Landed or Departed ${timeDepFact}`</div>
-      <div className="ceil__airline">
+    <li className="flights__table-row row">
+      <div className="row__terminal">{term}</div>
+      <div className="row__timeShed">{`${new Date(timeDepShedule).getHours()} : ${new Date(timeDepShedule).getMinutes()}`}</div>
+      <div className="row__destination">{"destination"}</div>
+      <div className="row__timeAct">{`Landed or Departed ${new Date(timeDepFact).getHours()} : ${new Date(timeDepFact).getMinutes()}`} </div>
+      <div className="row__airline">
         <img src={icon} alt={airline} />
         {airline}
       </div>
-      <div className="ceil__flight">{flight}</div>
+      <div className="row__flight">{flight}</div>
     </li>
   );
 };

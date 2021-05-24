@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CgSearch } from "react-icons/cg";
 
 const Search = () => {
   const [inputText, setInpitText] = useState("");
@@ -14,6 +15,7 @@ const Search = () => {
         // onSubmit={ }
         //
       >
+        <CgSearch />
         <input
           type="text"
           className="search__input"
@@ -22,7 +24,7 @@ const Search = () => {
           value={inputText}
           //
         />
-        <button className="search__button"></button>
+        <button className="search__button">Search</button>
       </form>
     </div>
   );
