@@ -11,34 +11,35 @@ const FlightsTable = () => {
   return (
     <ul className="flights__departures">
       {flightsList.map((flightObj) => {
+        // const destination = ["handlerID.name"];
+        // const icon = airline.en.logoSmallName;
+        // const airline = "airline.en.name";
+        // const flight = "codeShareData.codeShare";
+
         const {
           ID,
           term,
           timeDepShedule,
           timeDepFact,
-          status, // status: "DP",
-          destination: handlerID[name], //"handlerID.name": "MASTERAVIA",
-          icon: "airline.en.logoSmallName",
-          airline: "airline.en.name",
-          flight: "codeShareData.codeShare",
-          //
+          status, 
+          airline, 
+          codeShareData,
         } = flightObj;
 
-        console.log(destination);
         return (
-          <div key={ID} className="">hi</div>
-          // <TableRow
-          //   key={ID}
-          //   term={term}
-          //   timeDepShedule={timeDepShedule}
-          //   timeDepFact={timeDepFact}
-          //   status={status}
-          //   destination={destination}
-          //   icon={icon}
-          //   airline={airline}
-          //   flight={flight}
-          //   //
-          // />
+          <TableRow
+            key={ID}
+            term={term}
+            timeDepShedule={timeDepShedule}
+            timeDepFact={timeDepFact}
+            status={status}
+            // destination={destination}
+            // icon={icon}
+            airline={airline}
+            // flight={flight}
+            codeShareData={codeShareData}
+            //
+          />
         );
       })}
     </ul>
