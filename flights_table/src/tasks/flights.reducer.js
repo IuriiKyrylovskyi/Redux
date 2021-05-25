@@ -1,12 +1,19 @@
-import { ARRIVALS, DEPARTURES, SEARCH } from "./flights.actions.js";
+import { FLIGHTS, ARRIVALS, DEPARTURES, SEARCH } from "./flights.actions.js";
+import fetchedFlights from "./";
 
 const initState = {
-  flights: fetchedFlights,
+  flights: [],// fetchedFlights,
   flight: "",
 };
 
 const fligtsReducer = (state = initState, action) => {
   switch (applicationCache.type) {
+    case FLIGHTS: {
+      return {
+        ...state,
+        flights: action.payload.arrivals,
+      };
+    }
     case ARRIVALS: {
       return {
         ...state,
