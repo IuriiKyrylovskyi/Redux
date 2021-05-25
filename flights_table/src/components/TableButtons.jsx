@@ -3,21 +3,18 @@ import { FaPlaneDeparture } from "react-icons/fa";
 import { FaPlaneArrival } from "react-icons/fa";
 
 const TableButtons = () => {
-  const [active, setActive] = useState(true);
-  const [activeDep, setActiveDep] = useState(false);
+  const [active, setActive] = useState(false);
 
   const handleClick = (e) => {
     e.preventDefault();
     setActive(!active);
-    setActiveDep(!activeDep);
   };
 
-  const btnClassName =  "btn"; //active ? "btn _active" :
 
   return (
     <div className="flights__header">
       <button
-        className={btnClassName}
+        className="btn"
         onClick={handleClick}
         disabled={active}
         //
@@ -25,9 +22,9 @@ const TableButtons = () => {
         <FaPlaneDeparture /> Departures
       </button>
       <button
-        className={btnClassName}
+        className='btn'
         onClick={handleClick}
-        disabled={activeDep}
+        disabled={!active}
         //
       >
         <FaPlaneArrival /> Arrivals
