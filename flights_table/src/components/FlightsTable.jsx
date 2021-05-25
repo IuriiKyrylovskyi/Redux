@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import TableRow from "./TableRow";
+import * as flightsAction from "../tasks/flights.actions";
 
 import { apiInfo } from "../api_info";
 
-const FlightsTable = () => {
+const FlightsTable = ({ getFlightsList }) => {
+  useEffect(() => {
+    getFlightsList();
+  }, [getFlightsList]);
   const flightsList = apiInfo.departure; //.concat(apiInfo.arrival);
   // const departuresList = apiInfo.departure;
   // const departuresList = apiInfo.departure;
@@ -48,4 +53,18 @@ const FlightsTable = () => {
   );
 };
 
-export default FlightsTable;
+const mapState = (state) => {
+  return {
+    flights: state.flightsList.flights,
+    searh: state.flightsList.flight,
+  };
+};
+
+const mapDispatch = {
+  getFlightsList: flightsAction.getFlightsList,
+  getArrivalsList: flightsAction.getArrivalsList,
+  getDeparturesList: flightsAction.getDeparturesList,
+  getSearchedFlight: flightsAction.getSearchedFlight,
+};
+
+export default connect(mapState, mapDispatch)(FlightsTable);

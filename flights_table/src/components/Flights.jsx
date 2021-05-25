@@ -10,7 +10,7 @@ const Flights = () => {
     <div className="flights">
       <TableButtons />
       <div className="flights__content">
-          <TableHeader />
+        <TableHeader />
         <div className="flights__table">
           <FlightsTable />
         </div>

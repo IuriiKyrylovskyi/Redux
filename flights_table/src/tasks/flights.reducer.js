@@ -1,13 +1,13 @@
 import { FLIGHTS, ARRIVALS, DEPARTURES, SEARCH } from "./flights.actions.js";
-import fetchedFlights from "./";
+// import fetchedFlights from "./";
 
 const initState = {
   flights: [],// fetchedFlights,
   flight: "",
 };
 
-const fligtsReducer = (state = initState, action) => {
-  switch (applicationCache.type) {
+const flightsReducer = (state = initState, action) => {
+  switch (action.type) {
     case FLIGHTS: {
       return {
         ...state,
@@ -38,4 +38,4 @@ const fligtsReducer = (state = initState, action) => {
   }
 };
 
-export default fligtsReducer;
+export default flightsReducer;
