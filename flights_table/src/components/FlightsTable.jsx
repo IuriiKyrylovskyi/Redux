@@ -24,7 +24,8 @@ const FlightsTable = ({ flights, getFlightsList }) => {
 
   return (
     <ul className="flights__list">
-      {flights.length !== 0 &&
+      {
+        // flights.length !== 0 &&
         flightsList.map((flightObj, index) => {
           // const destination = ["handlerID.name"];
           // const icon = airline.en.logoSmallName;
