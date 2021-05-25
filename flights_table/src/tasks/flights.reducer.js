@@ -11,7 +11,7 @@ const flightsReducer = (state = initState, action) => {
     case FLIGHTS: {
       return {
         ...state,
-        flights: action.payload.arrivals,
+        flights: action.payload,
       };
     }
     case ARRIVALS: {
