@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import TableRow from "./TableRow";
 import * as flightsAction from "../tasks/flights.actions";
 
-const FlightsTable = ({ flights, getFlightsList, isDepartures }) => {
+const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
   useEffect(() => {
     getFlightsList();
   }, [getFlightsList]);
 
   if (flights.length === 0) {
-    return <p className="load">Loading ...</p>
+    return <p className="load">Loading ...</p>;
   }
   let flightsList = [];
 
@@ -41,9 +41,9 @@ const FlightsTable = ({ flights, getFlightsList, isDepartures }) => {
           const timeFact = status === "DP" ? timeDepFact : timeLandFact;
           const airportTo = flightObj["airportToID.city_en"];
           const airportFrom = flightObj["airportFromID.city_en"];
-          const flight = codeShareData[0].codeShare;
-          const icon = codeShareData[0].airline.en.logoSmallName;
-          const name = codeShareData[0].airline.en.name;
+          const flight = codeShareData[0]["codeShare"];
+          const icon = codeShareData[0]["airline"]["en"]["logoSmallName"];
+          const name = codeShareData[0]["airline"]["en"]["name"];
 
           return (
             <TableRow
@@ -71,15 +71,15 @@ const FlightsTable = ({ flights, getFlightsList, isDepartures }) => {
 const mapState = (state) => {
   return {
     flights: state.flightsList.flights,
-    searh: state.flightsList.flight,
+    search: state.flightsList.flight,
   };
 };
 
 const mapDispatch = {
   getFlightsList: flightsAction.getFlightsList,
-  getArrivalsList: flightsAction.getArrivalsList,
-  getDeparturesList: flightsAction.getDeparturesList,
-  getSearchedFlight: flightsAction.getSearchedFlight,
+  // getArrivalsList: flightsAction.getArrivalsList,
+  // getDeparturesList: flightsAction.getDeparturesList,
+  // getSearchedFlight: flightsAction.getSearchedFlight,
 };
 
 export default connect(mapState, mapDispatch)(FlightsTable);
