@@ -18,12 +18,14 @@ const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
     flightsList = isDepartures ? [...allFlights.departure] : [...allFlights.arrival];
   }
   // console.log(flightsList);
-
+  // if (search !== '') {
+  //   flightsList = flightsList.slice().
+  // }
   return (
     <ul className="flights__list">
       {
-        // flights.length !== 0 &&
-        flightsList.map((flightObj, index) => {
+        // search === "" &&
+        flightsList.map((flightObj) => {
           const {
             ID,
             term,
@@ -48,7 +50,6 @@ const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
           return (
             <TableRow
               key={ID}
-              index={index}
               term={term}
               timeShedule={timeShedule}
               timeFact={timeFact}

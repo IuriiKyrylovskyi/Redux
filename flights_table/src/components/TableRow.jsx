@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-const TableRow = ({ ID, index, term, timeShedule, timeFact, status,airportFrom, airportTo , flight, icon, name }) => {
+const TableRow = ({ term, timeShedule, timeFact, status,airportFrom, airportTo , flight, icon, name }) => {
   const classTerminalSpan = term === "A" ? "green" : "blue";
   const destination = airportFrom || airportTo;
   

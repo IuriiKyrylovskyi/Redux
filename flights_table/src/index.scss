@@ -19,6 +19,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background: rgb(235, 235, 235);
 }
 body {
   line-height: 1;
@@ -27,8 +28,8 @@ body {
 }
 
 .main {
-  padding: 3% 20px 20px 20px;
-  background: rgb(235, 235, 235);
+  width: calc(100vw - 20px);
+  padding: 25px 20px 20px 20px;
   overflow-x: hidden;
   &__title {
     font-size: 70px;
