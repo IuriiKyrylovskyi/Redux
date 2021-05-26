@@ -8,6 +8,9 @@ const FlightsTable = ({ flights, getFlightsList, isDepartures }) => {
     getFlightsList();
   }, [getFlightsList]);
 
+  if (flights.length === 0) {
+    return <p className="load">Loading ...</p>
+  }
   let flightsList = [];
 
   if (flights.length !== 0) {

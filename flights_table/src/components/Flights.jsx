@@ -2,8 +2,6 @@ import React, {useState} from "react";
 import TableButtons from "./TableButtons";
 import TableHeader from "./TableHeader";
 import FlightsTable from "./FlightsTable";
-// import Departures from "./Departures";
-// import Arrivals from "./Arrivals";
 
 const Flights = () => {
   const [isDepartures, setIsDepartures] = useState(false);
