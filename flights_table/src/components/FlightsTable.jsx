@@ -3,24 +3,21 @@ import { connect } from "react-redux";
 import TableRow from "./TableRow";
 import * as flightsAction from "../tasks/flights.actions";
 
-import { apiInfo } from "../api_info";
+// import { apiInfo } from "../api_info";
 
 const FlightsTable = ({ flights, getFlightsList }) => {
   useEffect(() => {
     getFlightsList();
   }, [getFlightsList]);
 
-  let fl = [];
+  let flightsList = [];
   if (flights.length !== 0) {
     console.log(flights.flights.body);
     const allFlights = flights.flights.body;
-    console.log(allFlights.arrival);
-    console.log(allFlights.arrival[0].ID);
-    return (fl = [...allFlights.arrival])//, ...allFlights.departure]);
+    flightsList = [...allFlights.departure];
+    // flightsList = [...allFlights.arrival, ...allFlights.departure];
   }
-  console.log(fl);
-  const flightsList = fl; //apiInfo.departure; //.concat(apiInfo.arrival);
-  // const departuresList = apiInfo.departure;
+  console.log(flightsList);
 
   return (
     <ul className="flights__list">
@@ -32,34 +29,48 @@ const FlightsTable = ({ flights, getFlightsList }) => {
           // const airline = "airline.en.name";
           // const flight = "codeShareData.codeShare";
 
+          // console.log(flightObj.timeDepShedule);
           const {
             ID,
             term,
+            status,
             timeDepShedule,
             timeDepFact,
-            status,
+            timeArrShedule,
+            timeLandFact,
             airline,
             codeShareData,
+
             //
           } = flightObj;
+
+          const timeShedule = status === "DP" ? timeDepShedule : timeArrShedule;
+          const timeFact = status === "DP" ? timeDepFact : timeLandFact;
+          const destination = flightObj["airportToID.city_en"];
+          const flight = codeShareData[0].codeShare;
+          const icon = codeShareData[0].airline.en.logoSmallName;
+          const name = codeShareData[0].airline.en.name;
+          // console.log(Object.values(codeShareData));
+          // console.log(codeShareData[0].airline.en.logoSmallName);
 
           return (
             <TableRow
               key={ID}
               index={index}
               term={term}
-              timeDepShedule={timeDepShedule}
-              timeDepFact={timeDepFact}
+              timeShedule={timeShedule}
+              timeFact={timeFact}
               status={status}
-              // destination={destination}
-              // icon={icon}
+              destination={destination}
+              icon={icon}
               airline={airline}
-              // flight={flight}
-              codeShareData={codeShareData}
+              flight={flight}
+              name={name}
               //
             />
           );
-        })}
+        })
+      }
     </ul>
   );
 };
