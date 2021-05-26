@@ -11,6 +11,7 @@ const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
   if (flights.length === 0) {
     return <p className="load">Loading ...</p>;
   }
+
   let flightsList = [];
 
   if (flights.length !== 0) {
@@ -26,6 +27,13 @@ const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
   if (flightsList.length === 0) {
     return <p className="load">No flights (</p>;
   }
+
+  // if (search === "") {
+  //   getSearchedFlight('')
+  //   const allFlights = flights.flights.body;
+  //   flightsList = isDepartures ? [...allFlights.departure] : [...allFlights.arrival];
+  // }
+
   return (
     <ul className="flights__list">
       {flightsList.map((flightObj) => {
