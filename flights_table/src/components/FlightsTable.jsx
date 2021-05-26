@@ -3,19 +3,16 @@ import { connect } from "react-redux";
 import TableRow from "./TableRow";
 import * as flightsAction from "../tasks/flights.actions";
 
-// import { apiInfo } from "../api_info";
-
-const FlightsTable = ({ flights, getFlightsList }) => {
+const FlightsTable = ({ flights, getFlightsList, isDepartures }) => {
   useEffect(() => {
     getFlightsList();
   }, [getFlightsList]);
 
   let flightsList = [];
+
   if (flights.length !== 0) {
-    console.log(flights.flights.body);
     const allFlights = flights.flights.body;
-    flightsList = [...allFlights.departure];
-    // flightsList = [...allFlights.arrival, ...allFlights.departure];
+    flightsList = isDepartures ? [...allFlights.departure] : [...allFlights.arrival];
   }
   console.log(flightsList);
 
@@ -24,12 +21,6 @@ const FlightsTable = ({ flights, getFlightsList }) => {
       {
         // flights.length !== 0 &&
         flightsList.map((flightObj, index) => {
-          // const destination = ["handlerID.name"];
-          // const icon = airline.en.logoSmallName;
-          // const airline = "airline.en.name";
-          // const flight = "codeShareData.codeShare";
-
-          // console.log(flightObj.timeDepShedule);
           const {
             ID,
             term,
@@ -40,18 +31,16 @@ const FlightsTable = ({ flights, getFlightsList }) => {
             timeLandFact,
             airline,
             codeShareData,
-
             //
           } = flightObj;
 
           const timeShedule = status === "DP" ? timeDepShedule : timeArrShedule;
           const timeFact = status === "DP" ? timeDepFact : timeLandFact;
-          const destination = flightObj["airportToID.city_en"];
+          const airportTo = flightObj["airportToID.city_en"];
+          const airportFrom = flightObj["airportFromID.city_en"];
           const flight = codeShareData[0].codeShare;
           const icon = codeShareData[0].airline.en.logoSmallName;
           const name = codeShareData[0].airline.en.name;
-          // console.log(Object.values(codeShareData));
-          // console.log(codeShareData[0].airline.en.logoSmallName);
 
           return (
             <TableRow
@@ -61,7 +50,8 @@ const FlightsTable = ({ flights, getFlightsList }) => {
               timeShedule={timeShedule}
               timeFact={timeFact}
               status={status}
-              destination={destination}
+              airportTo={airportTo}
+              airportFrom={airportFrom}
               icon={icon}
               airline={airline}
               flight={flight}
@@ -77,7 +67,7 @@ const FlightsTable = ({ flights, getFlightsList }) => {
 
 const mapState = (state) => {
   return {
-    flights: state.flightsList.flights, //.flights.body,
+    flights: state.flightsList.flights,
     searh: state.flightsList.flight,
   };
 };

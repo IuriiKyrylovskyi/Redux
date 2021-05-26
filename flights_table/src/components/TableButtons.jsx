@@ -1,30 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { FaPlaneArrival } from "react-icons/fa";
 
-const TableButtons = () => {
-  const [active, setActive] = useState(false);
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    setActive(!active);
-  };
-
-
+const TableButtons = ({ isDepartures, handleDepartures }) => {
   return (
     <div className="flights__header">
       <button
         className="btn"
-        onClick={handleClick}
-        disabled={active}
+        onClick={handleDepartures}
+        disabled={isDepartures}
         //
       >
         <FaPlaneDeparture /> Departures
       </button>
       <button
-        className='btn'
-        onClick={handleClick}
-        disabled={!active}
+        className="btn"
+        onClick={handleDepartures}
+        disabled={!isDepartures}
         //
       >
         <FaPlaneArrival /> Arrivals
