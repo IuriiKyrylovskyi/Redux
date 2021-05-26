@@ -17,54 +17,56 @@ const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
     const allFlights = flights.flights.body;
     flightsList = isDepartures ? [...allFlights.departure] : [...allFlights.arrival];
   }
-  // console.log(flightsList);
-  // if (search !== '') {
-  //   flightsList = flightsList.slice().
-  // }
+  if (search !== "") {
+    console.log(flightsList[1]["codeShareData"][0]["codeShare"] === search);
+    console.log(search.tetx);
+    flightsList = flightsList.filter((flightObj) => flightObj["codeShareData"][0]["codeShare"] === search.text);
+    console.log(flightsList);
+  }
+  if (flightsList.length === 0) {
+    return <p className="load">No flights (</p>;
+  }
   return (
     <ul className="flights__list">
-      {
-        // search === "" &&
-        flightsList.map((flightObj) => {
-          const {
-            ID,
-            term,
-            status,
-            timeDepShedule,
-            timeDepFact,
-            timeArrShedule,
-            timeLandFact,
-            airline,
-            codeShareData,
+      {flightsList.map((flightObj) => {
+        const {
+          ID,
+          term,
+          status,
+          timeDepShedule,
+          timeDepFact,
+          timeArrShedule,
+          timeLandFact,
+          airline,
+          codeShareData,
+          //
+        } = flightObj;
+
+        const timeShedule = status === "DP" ? timeDepShedule : timeArrShedule;
+        const timeFact = status === "DP" ? timeDepFact : timeLandFact;
+        const airportTo = flightObj["airportToID.city_en"];
+        const airportFrom = flightObj["airportFromID.city_en"];
+        const flight = codeShareData[0]["codeShare"];
+        const icon = codeShareData[0]["airline"]["en"]["logoSmallName"];
+        const name = codeShareData[0]["airline"]["en"]["name"];
+
+        return (
+          <TableRow
+            key={ID}
+            term={term}
+            timeShedule={timeShedule}
+            timeFact={timeFact}
+            status={status}
+            airportTo={airportTo}
+            airportFrom={airportFrom}
+            icon={icon}
+            airline={airline}
+            flight={flight}
+            name={name}
             //
-          } = flightObj;
-
-          const timeShedule = status === "DP" ? timeDepShedule : timeArrShedule;
-          const timeFact = status === "DP" ? timeDepFact : timeLandFact;
-          const airportTo = flightObj["airportToID.city_en"];
-          const airportFrom = flightObj["airportFromID.city_en"];
-          const flight = codeShareData[0]["codeShare"];
-          const icon = codeShareData[0]["airline"]["en"]["logoSmallName"];
-          const name = codeShareData[0]["airline"]["en"]["name"];
-
-          return (
-            <TableRow
-              key={ID}
-              term={term}
-              timeShedule={timeShedule}
-              timeFact={timeFact}
-              status={status}
-              airportTo={airportTo}
-              airportFrom={airportFrom}
-              icon={icon}
-              airline={airline}
-              flight={flight}
-              name={name}
-              //
-            />
-          );
-        })
-      }
+          />
+        );
+      })}
     </ul>
   );
 };

@@ -7,7 +7,7 @@ const Search = ({ search, getSearchedFlight }) => {
   const [inputText, setInpitText] = useState(search);
 
   const handleChange = (e) => {
-    setInpitText(e.target.value);
+    setInpitText(e.target.value.toUpperCase());
   };
 
   const handleSearch = (e) => {
