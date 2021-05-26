@@ -17,7 +17,7 @@ const FlightsTable = ({ flights, getFlightsList, isDepartures }) => {
     const allFlights = flights.flights.body;
     flightsList = isDepartures ? [...allFlights.departure] : [...allFlights.arrival];
   }
-  console.log(flightsList);
+  // console.log(flightsList);
 
   return (
     <ul className="flights__list">
