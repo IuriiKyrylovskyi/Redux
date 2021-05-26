@@ -20,9 +20,9 @@ const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
   }
   if (search !== "") {
     console.log(flightsList[1]["codeShareData"][0]["codeShare"] === search);
-    console.log(search.tetx);
+    // console.log(search.tetx);
     flightsList = flightsList.filter((flightObj) => flightObj["codeShareData"][0]["codeShare"] === search.text);
-    console.log(flightsList);
+    // console.log(flightsList);
   }
   if (flightsList.length === 0) {
     return <p className="load">No flights (</p>;

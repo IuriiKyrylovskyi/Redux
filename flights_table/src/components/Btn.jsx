@@ -2,12 +2,10 @@ import React, { useState } from "react";
 
 const Btn = ({ icon }) => {
   const [activeArr, setActiveArr] = useState(true);
-  // const [activeDep, setActiveDep] = useState(false);
 
   const handleClick = (e) => {
     e.preventDefault();
     setActiveArr(!activeArr);
-    // setActiveDep(!activeDep);
   };
 
   const btnClassName = activeArr ? "btn _active" : "btn";

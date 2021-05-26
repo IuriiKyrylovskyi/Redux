@@ -19,7 +19,7 @@ const Search = ({ search, getSearchedFlight }) => {
     <div className="search">
       <form
         className="search__form"
-        // onSubmit={ }
+        onSubmit={handleSearch}
         //
       >
         <CgSearch />
@@ -31,13 +31,13 @@ const Search = ({ search, getSearchedFlight }) => {
           value={inputText}
           //
         />
-        <button
-          className="search__button"
-          onClick={handleSearch}
-          //
-        >
-          Search
-        </button>
+          <button
+            className="search__button"
+            // onClick={handleSearch}
+            //
+          >
+            Search
+          </button>
       </form>
     </div>
   );
@@ -54,3 +54,4 @@ const mapDispatch = {
 };
 
 export default connect(mapState, mapDispatch)(Search);
+
