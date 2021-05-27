@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import useLocalStorage from "../functions/useLocalStorage";
 
 const Btn = ({ icon }) => {
-  const [activeArr, setActiveArr] = useState(true);
+  // const [activeArr, setActiveArr] = useState(true);
+  const [activeArr, setActiveArr] = useLocalStorage("isActiveArr", true);
 
   const handleClick = (e) => {
     e.preventDefault();

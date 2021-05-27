@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+// import useLocalStorage from "../functions/useLocalStorage";
 import TableRow from "./TableRow";
 import * as flightsAction from "../tasks/flights.actions";
 
-const FlightsTable = ({ flights, search, getFlightsList, isDepartures, getSearchedFlight }) => {
+const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
+  // const [flightsList, setInpitText] = useLocalStorage("search", flights);
+ 
   useEffect(() => {
     getFlightsList();
   }, [getFlightsList]);
@@ -95,7 +98,7 @@ const mapDispatch = {
   // getArrivalsList: flightsAction.getArrivalsList,
   // getDeparturesList: flightsAction.getDeparturesList,
   // getSearchedFlight: flightsAction.getSearchedFlight,
-  getSearchedFlight: flightsAction.storeSearchedFlight,
+  // getSearchedFlight: flightsAction.storeSearchedFlight,
 };
 
 export default connect(mapState, mapDispatch)(FlightsTable);

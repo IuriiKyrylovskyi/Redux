@@ -32,12 +32,12 @@ export const getFlightsList = () => {
   };
 };
 
-export const storeSearchedFlight = (flight) => {
-  return function (dispatch) {
-    localStorage.setItem("flight", JSON.stringify(flight));
-    dispatch(getSearchedFlight(flight));
-  };
-};
+// export const storeSearchedFlight = (flight) => {
+//   return function (dispatch) {
+//     localStorage.setItem("flight", JSON.stringify(flight));
+//     dispatch(getSearchedFlight(flight));
+//   };
+// };
 
 // export const getArrivalsList = (arrivals) => {
 //   return function (dispatch) {

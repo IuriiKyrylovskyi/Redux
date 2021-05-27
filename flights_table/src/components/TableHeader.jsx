@@ -28,6 +28,7 @@ const TableHeader = () => {
       text: "Flight",
     },
   ];
+
   return (
     <ul className="flights__table-header">
       {tableHeaderCeils.map((ceil) => {
