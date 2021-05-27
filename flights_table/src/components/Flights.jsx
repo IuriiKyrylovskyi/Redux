@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 // import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
+import useLocalStorage from "../functions/useLocalStorage";
 import TableButtons from "./TableButtons";
 import TableHeader from "./TableHeader";
 import FlightsTable from "./FlightsTable";
 
 const Flights = ({ search }) => {
-  const [isDepartures, setIsDepartures] = useState(false);
+  // const [isDepartures, setIsDepartures] = useState(false);
+  const [isDepartures, setIsDepartures] = useLocalStorage("isDepartures", false); // const [activeArr, setActiveArr] = useLocalStorage("isActiveArr", true);
+  //
 
   const handleClick = (e) => {
     e.preventDefault();
