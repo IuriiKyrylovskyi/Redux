@@ -3,10 +3,19 @@ import { connect } from "react-redux";
 import TableRow from "./TableRow";
 import * as flightsAction from "../tasks/flights.actions";
 
-const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
+const FlightsTable = ({ flights, search, getFlightsList, isDepartures, getSearchedFlight }) => {
+  // const handleFlightsList = () => {
+  localStorage.setItem("flights", JSON.stringify(flights));
+  localStorage.setItem("flight", JSON.stringify(search));
+  // };
+
   useEffect(() => {
     getFlightsList();
-  }, [getFlightsList]);
+    const fls = localStorage.getItem("flights");
+    const fl = localStorage.getItem("search");
+    getFlightsList(fls);
+    getSearchedFlight(fl);
+  }, [getFlightsList, getSearchedFlight]);
 
   if (flights.length === 0) {
     return <p className="load">Loading ...</p>;
@@ -33,7 +42,11 @@ const FlightsTable = ({ flights, search, getFlightsList, isDepartures }) => {
   //   const allFlights = flights.flights.body;
   //   flightsList = isDepartures ? [...allFlights.departure] : [...allFlights.arrival];
   // }
-
+  console.log(flightsList);
+  console.log(search);
+  console.log(localStorage.getItem("flights"));
+  console.log(localStorage.getItem("flight"));
+  // window.addEventListener('storage',)
   return (
     <ul className="flights__list">
       {flightsList.map((flightObj) => {
@@ -90,7 +103,7 @@ const mapDispatch = {
   getFlightsList: flightsAction.getFlightsList,
   // getArrivalsList: flightsAction.getArrivalsList,
   // getDeparturesList: flightsAction.getDeparturesList,
-  // getSearchedFlight: flightsAction.getSearchedFlight,
+  getSearchedFlight: flightsAction.getSearchedFlight,
 };
 
 export default connect(mapState, mapDispatch)(FlightsTable);

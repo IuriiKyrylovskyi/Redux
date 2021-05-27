@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import { FaPlaneDeparture } from "react-icons/fa";
 import { FaPlaneArrival } from "react-icons/fa";
@@ -7,7 +7,7 @@ import { FaPlaneArrival } from "react-icons/fa";
 const TableButtons = ({ flightPath, isDepartures, handleDepartures }) => {
   return (
     <div className="flights__header">
-      <Link to='departures${flightPath'>
+      {/* <Link to='departures${flightPath'> */}
         <button
           className="btn"
           onClick={handleDepartures}
@@ -16,7 +16,7 @@ const TableButtons = ({ flightPath, isDepartures, handleDepartures }) => {
         >
           <FaPlaneDeparture /> Departures
         </button>
-      </Link>
+      {/* </Link> */}
       <button
         className="btn"
         onClick={handleDepartures}
