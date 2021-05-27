@@ -25,7 +25,17 @@ export const getSearchedFlight = (text) => {
 
 export const getFlightsList = () => {
   return function (dispatch) {
-    fetchFlightsList().then((flights) => dispatch(flightsListRecieved(flights)));
+    fetchFlightsList().then((flights) => {
+      localStorage.setItem("flights", JSON.stringify({ flights }));
+      dispatch(flightsListRecieved(flights));
+    });
+  };
+};
+
+export const storeSearchedFlight = (flight) => {
+  return function (dispatch) {
+    localStorage.setItem("flight", JSON.stringify(flight));
+    dispatch(getSearchedFlight(flight));
   };
 };
 

@@ -4,18 +4,9 @@ import TableRow from "./TableRow";
 import * as flightsAction from "../tasks/flights.actions";
 
 const FlightsTable = ({ flights, search, getFlightsList, isDepartures, getSearchedFlight }) => {
-  // const handleFlightsList = () => {
-  localStorage.setItem("flights", JSON.stringify(flights));
-  localStorage.setItem("flight", JSON.stringify(search));
-  // };
-
   useEffect(() => {
     getFlightsList();
-    const fls = localStorage.getItem("flights");
-    const fl = localStorage.getItem("search");
-    getFlightsList(fls);
-    getSearchedFlight(fl);
-  }, [getFlightsList, getSearchedFlight]);
+  }, [getFlightsList]);
 
   if (flights.length === 0) {
     return <p className="load">Loading ...</p>;
@@ -94,7 +85,7 @@ const FlightsTable = ({ flights, search, getFlightsList, isDepartures, getSearch
 
 const mapState = (state) => {
   return {
-    flights: state.flightsList.flights,
+    flights: state.flightsList.flights.length ? state.flightsList.flights : localStorage.getItem("flights") ? JSON.parse(localStorage.getItem("flights")) : [],
     search: state.flightsList.flight,
   };
 };
@@ -103,7 +94,8 @@ const mapDispatch = {
   getFlightsList: flightsAction.getFlightsList,
   // getArrivalsList: flightsAction.getArrivalsList,
   // getDeparturesList: flightsAction.getDeparturesList,
-  getSearchedFlight: flightsAction.getSearchedFlight,
+  // getSearchedFlight: flightsAction.getSearchedFlight,
+  getSearchedFlight: flightsAction.storeSearchedFlight,
 };
 
 export default connect(mapState, mapDispatch)(FlightsTable);
