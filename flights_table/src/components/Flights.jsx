@@ -25,7 +25,7 @@ const Flights = ({ search }) => {
   console.log(!search);
 
   const flightPath = `/?name=${search.text}`;
-  const path = !isDepartures ? `/departures/${month}-${dateNumber}-${year}` + (!search ? "" : flightPath) : `/arrivals/${month}-${dateNumber}-${year}` + (!search ? "" : flightPath);
+  const path = !isDepartures ? `/departures/${month}-${dateNumber}-${year}` + (!search || search.text === "" ? "" : flightPath) : `/arrivals/${month}-${dateNumber}-${year}` + (!search || search.text === "" ? "" : flightPath);
 
   const handleClick = (e) => {
     e.preventDefault();
