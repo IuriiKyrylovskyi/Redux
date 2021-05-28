@@ -4,10 +4,9 @@ import React from "react";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { FaPlaneArrival } from "react-icons/fa";
 
-const TableButtons = ({ flightPath, isDepartures, handleDepartures }) => {
+const TableButtons = ({ isDepartures, handleDepartures }) => {
   return (
     <div className="flights__header">
-      {/* <Link to='departures${flightPath'> */}
         <button
           className="btn"
           onClick={handleDepartures}
@@ -16,7 +15,6 @@ const TableButtons = ({ flightPath, isDepartures, handleDepartures }) => {
         >
           <FaPlaneDeparture /> Departures
         </button>
-      {/* </Link> */}
       <button
         className="btn"
         onClick={handleDepartures}

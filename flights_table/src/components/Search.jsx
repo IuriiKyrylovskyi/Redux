@@ -13,7 +13,10 @@ const Search = ({ search, getSearchedFlight }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    getSearchedFlight(inputText);
+    if (inputText) {
+      return getSearchedFlight(inputText);
+    }
+    getSearchedFlight("");
   };
 
   return (
