@@ -1,6 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-
 import { FaPlaneDeparture } from "react-icons/fa";
 import { FaPlaneArrival } from "react-icons/fa";
 

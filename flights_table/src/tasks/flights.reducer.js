@@ -1,7 +1,7 @@
 import { FLIGHTS, SEARCH } from "./flights.actions.js";
 
 const initState = {
-  flights: [], // fetchedFlights,
+  flights: [], 
   flight: "",
 };
 
